@@ -108,11 +108,28 @@ server {
 }
 ```
 
+## Design rendszer
+
+Mielőtt bármilyen UI komponenst vagy oldalt implementálsz, olvasd el a `../docs/DESIGN.md` fájlt.
+Ez tartalmazza az összes color tokent, tipográfiai szabályt és layout konvenciót.
+
+Ha a `DESIGN.md` nem létezik vagy hiányos: kérd az orchestratort, hogy futtassa a design-agentet először.
+
 ## Design elvek
 
-- Mesés, illusztrált stílus – összhangban a projekt arculatával
+- Mesés, illusztrált stílus – a `DESIGN.md` color tokenjeivel és tipográfiájával összhangban
 - Reszponzív: mobile-first megközelítés
 - Akadálymentesség: szemantikus HTML elemek használata
+- CSS custom property-ket (`--color-primary` stb.) használj hardcoded értékek helyett
+
+## Docker build architektúra
+
+A Docker image-ket MINDIG GitHub Actions buildeli, soha nem lokálisan.
+Ennek oka: a fejlesztői gép arm64 (Apple Silicon), a VPS amd64.
+Lokálisan csak `pnpm dev` fut, image buildelés a CI feladata.
+
+A GitHub Actions workflow-ban kötelező:
+platforms: linux/amd64
 
 ## Amit SOHA nem csinálsz
 

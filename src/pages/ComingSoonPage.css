@@ -1,0 +1,224 @@
+:root {
+  /* Primary */
+  --color-primary: #00619c;
+  --color-primary-container: #1a7abf;
+  --color-on-primary: #ffffff;
+
+  /* Surface */
+  --color-surface: #f4faff;
+  --color-surface-container-low: #ecf5fb;
+  --color-surface-container-lowest: #ffffff;
+
+  /* On Surface */
+  --color-on-surface: #141d21;
+  --color-on-surface-variant: #404750;
+
+  /* Outline */
+  --color-outline-variant: #c0c7d2;
+
+  /* Shadows */
+  --shadow-ambient: 0 20px 40px rgba(0, 0, 0, 0.06);
+  --ghost-border: 0 0 0 1px rgba(192, 199, 210, 0.15);
+
+  /* Border Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 2rem;
+  --radius-xl: 3rem;
+  --radius-pill: 9999px;
+
+  /* Typography */
+  --font-family-base: 'Plus Jakarta Sans', sans-serif;
+  --font-size-body: 1rem;
+  --line-height-body: 1.6;
+  --letter-spacing-display: -0.02em;
+
+  /* Transitions */
+  --transition-lazy: 300ms ease-in-out;
+  --transition-slide: 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ─── Reset / Base ─────────────────────────────────────────────────── */
+
+.coming-soon-page {
+  font-family: var(--font-family-base);
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* ─── Glassmorphism Nav ────────────────────────────────────────────── */
+
+.coming-soon-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: rgba(244, 250, 255, 0.70);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-ambient);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coming-soon-nav__brand {
+  font-family: var(--font-family-base);
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: var(--letter-spacing-display);
+  color: var(--color-primary);
+  margin: 0;
+}
+
+/* ─── Hero / Main Content ──────────────────────────────────────────── */
+
+.coming-soon-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 7rem 1.5rem 4rem;
+  text-align: center;
+  position: relative;
+}
+
+.coming-soon-content {
+  max-width: 42rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  animation: fadeSlideUp var(--transition-slide) both;
+}
+
+.coming-soon-eyebrow {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background-color: var(--color-surface-container-low);
+  padding: 0.375rem 1rem;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--ghost-border);
+}
+
+.coming-soon-title {
+  font-family: var(--font-family-base);
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: var(--letter-spacing-display);
+  color: var(--color-on-surface);
+  margin: 0;
+}
+
+.coming-soon-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  line-height: var(--line-height-body);
+  color: var(--color-on-surface-variant);
+  margin: 0;
+  max-width: 30rem;
+}
+
+/* ─── CTA Gomb ────────────────────────────────────────────────────── */
+
+.coming-soon-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  padding: 0.875rem 2rem;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-container));
+  color: var(--color-on-primary);
+  font-family: var(--font-family-base);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-ambient);
+  transition: opacity var(--transition-lazy), transform var(--transition-lazy);
+}
+
+.coming-soon-cta:hover,
+.coming-soon-cta:focus-visible {
+  opacity: 0.88;
+  transform: translateY(-2px);
+}
+
+.coming-soon-cta:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* ─── Dekoratív kártya ─────────────────────────────────────────────── */
+
+.coming-soon-card {
+  margin-top: 1rem;
+  background-color: var(--color-surface-container-lowest);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-ambient);
+  padding: 1.5rem 2rem;
+  font-size: 0.9375rem;
+  color: var(--color-on-surface-variant);
+  line-height: var(--line-height-body);
+  max-width: 26rem;
+  width: 100%;
+}
+
+/* ─── SVG Wave dekoráció ───────────────────────────────────────────── */
+
+.coming-soon-wave {
+  display: block;
+  width: 100%;
+  margin-top: auto;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.coming-soon-wave svg {
+  display: block;
+  width: 100%;
+}
+
+/* ─── Animáció ──────────────────────────────────────────────────────── */
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Reszponzív ────────────────────────────────────────────────────── */
+
+@media (min-width: 768px) {
+  .coming-soon-nav {
+    padding: 1.25rem 2.5rem;
+    justify-content: flex-start;
+  }
+
+  .coming-soon-main {
+    padding: 8rem 2.5rem 5rem;
+  }
+
+  .coming-soon-content {
+    gap: 2rem;
+  }
+}
