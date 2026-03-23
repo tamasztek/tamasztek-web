@@ -13,6 +13,7 @@
     position: fixed;
     inset: 0;
     z-index: 0;
+    background-color: #b8e4f9;
 }
 
 .coming-soon-bg img {

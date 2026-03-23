@@ -1,5 +1,7 @@
 import heroBg from "../assets/hero.png";
+import heroBgWebp from "../assets/hero.webp";
 import mobileHeroBg from "../assets/mobile_hero.png";
+import mobileHeroBgWebp from "../assets/mobile_hero.webp";
 import "./ComingSoonPage.css";
 
 const ComingSoonPage: React.FC = () => {
@@ -7,8 +9,10 @@ const ComingSoonPage: React.FC = () => {
     <div className="coming-soon-page">
       <div className="coming-soon-bg">
         <picture>
+          <source media="(max-width: 768px)" srcSet={mobileHeroBgWebp} type="image/webp" />
           <source media="(max-width: 768px)" srcSet={mobileHeroBg} />
-          <img src={heroBg} alt="" aria-hidden="true" />
+          <source srcSet={heroBgWebp} type="image/webp" />
+          <img src={heroBg} alt="" aria-hidden="true" fetchPriority="high" />
         </picture>
       </div>
 
