@@ -39,6 +39,7 @@ jobs:
           context: .
           push: true
           platforms: linux/amd64
+          provenance: false
           tags: |
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
             ${{ github.event.inputs.version != '' && format('{0}/{1}:{2}', env.REGISTRY, env.IMAGE_NAME, github.event.inputs.version) || '' }}
