@@ -1,24 +1,26 @@
-import heroBg from '../assets/hero-countryside.jpg';
-import './ComingSoonPage.css';
+import heroBg from "../assets/hero.png";
+import mobileHeroBg from "../assets/mobile_hero.png";
+import "./ComingSoonPage.css";
 
 const ComingSoonPage: React.FC = () => {
   return (
     <div className="coming-soon-page">
       <div className="coming-soon-bg">
-        <img src={heroBg} alt="" aria-hidden="true" />
+        <picture>
+          <source media="(max-width: 768px)" srcSet={mobileHeroBg} />
+          <img src={heroBg} alt="" aria-hidden="true" />
+        </picture>
       </div>
 
       <nav className="coming-soon-nav" aria-label="Főnavigáció">
-        <div className="coming-soon-nav__brand">
-          <span className="coming-soon-nav__icon" aria-hidden="true">🌳</span>
-          TámaszTÉK Egyesület
-        </div>
+        <div className="coming-soon-nav__brand">TámaszTÉK Egyesület</div>
       </nav>
 
       <main className="coming-soon-main">
         <div className="coming-soon-content">
           <h1 className="coming-soon-title">
-            Hamarosan<br />
+            Hamarosan
+            <br />
             <span className="coming-soon-title--accent">találkozunk!</span>
           </h1>
           <p className="coming-soon-subtitle">
