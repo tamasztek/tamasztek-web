@@ -11,6 +11,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: tamasztek/tamasztek-web
+  VERSION: ${{ github.event.inputs.version }}
 
 jobs:
   build-and-deploy:
@@ -51,7 +52,9 @@ jobs:
           host: ${{ secrets.DEV_SSH_HOST }}
           username: ${{ secrets.DEV_SSH_USER }}
           key: ${{ secrets.DEV_SSH_KEY }}
+          envs: VERSION
           script: |
             cd /opt/tamasztek/uat
+            sed -i "s|ghcr.io/tamasztek/tamasztek-web:.*|ghcr.io/tamasztek/tamasztek-web:$VERSION|" docker-compose.yml
             docker compose pull tamasztek-web
             docker compose up -d tamasztek-web
