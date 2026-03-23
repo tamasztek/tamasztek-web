@@ -2,6 +2,11 @@ name: Deploy to Dev
 
 on:
   workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag to push alongside latest (e.g. 0.0.1), optional'
+        required: false
+        default: ''
 
 env:
   REGISTRY: ghcr.io
@@ -34,7 +39,9 @@ jobs:
           context: .
           push: true
           platforms: linux/amd64
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          tags: |
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+            ${{ github.event.inputs.version != '' && format('{0}/{1}:{2}', env.REGISTRY, env.IMAGE_NAME, github.event.inputs.version) || '' }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
