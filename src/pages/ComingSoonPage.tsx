@@ -1,6 +1,6 @@
 import heroBg from "../assets/hero_3.png";
-import mobileHeroBg from "../assets/mobile_hero.png";
-import mobileHeroBgWebp from "../assets/mobile_hero.webp";
+import mobileHeroBg from "../assets/cropped_mobile.png";
+import mobileHeroBgWebp from "../assets/cropped_mobile.webp";
 import logo from "../assets/logo.png";
 import "./ComingSoonPage.css";
 
