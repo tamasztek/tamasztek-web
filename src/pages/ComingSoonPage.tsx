@@ -1,5 +1,4 @@
 import heroBg from "../assets/hero_3.png";
-import heroBgWebp from "../assets/hero.webp";
 import mobileHeroBg from "../assets/mobile_hero.png";
 import mobileHeroBgWebp from "../assets/mobile_hero.webp";
 import logo from "../assets/logo.png";
