@@ -1,7 +1,8 @@
-import heroBg from "../assets/hero.png";
+import heroBg from "../assets/hero_3.png";
 import heroBgWebp from "../assets/hero.webp";
 import mobileHeroBg from "../assets/mobile_hero.png";
 import mobileHeroBgWebp from "../assets/mobile_hero.webp";
+import logo from "../assets/logo.png";
 import "./ComingSoonPage.css";
 
 const ComingSoonPage: React.FC = () => {
@@ -9,15 +10,21 @@ const ComingSoonPage: React.FC = () => {
     <div className="coming-soon-page">
       <div className="coming-soon-bg">
         <picture>
-          <source media="(max-width: 768px)" srcSet={mobileHeroBgWebp} type="image/webp" />
+          <source
+            media="(max-width: 768px)"
+            srcSet={mobileHeroBgWebp}
+            type="image/webp"
+          />
           <source media="(max-width: 768px)" srcSet={mobileHeroBg} />
-          <source srcSet={heroBgWebp} type="image/webp" />
+          {/*<source srcSet={heroBgWebp} type="image/webp" />*/}
           <img src={heroBg} alt="" aria-hidden="true" fetchPriority="high" />
         </picture>
       </div>
 
       <nav className="coming-soon-nav" aria-label="Főnavigáció">
-        <div className="coming-soon-nav__brand">TámaszTÉK Egyesület</div>
+        <div className="coming-soon-nav__brand">
+            <img src={logo} alt="TámaszTÉK Egyesület" className="coming-soon-nav__logo" />
+          </div>
       </nav>
 
       <main className="coming-soon-main">
