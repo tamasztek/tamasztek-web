@@ -98,8 +98,16 @@
         object-position: center;
     }
 
+    .coming-soon-nav {
+        padding: 1.5rem;
+    }
+
     .coming-soon-nav__brand {
         font-size: 1rem;
+    }
+
+    .coming-soon-nav__logo {
+        height: 50px;
     }
 
     .coming-soon-main {
