@@ -1,7 +1,10 @@
-import ComingSoonPage from './pages/ComingSoonPage'
+import HomePage from "./pages/HomePage";
+import ComingSoonPage from "./pages/ComingSoonPage";
+
+const devInProgress = import.meta.env.VITE_DEV_IN_PROGRESS === "true";
 
 function App() {
-  return <ComingSoonPage />
+  return devInProgress ? <ComingSoonPage /> : <HomePage />;
 }
 
-export default App
+export default App;

@@ -1,0 +1,119 @@
+.home-page {
+    position: relative;
+    text-align: left;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Desktop: <img> sets the natural page height → full image visible + scrollable */
+.home-page__bg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Content overlays on top of the background image */
+.home-page__overlay {
+    position: absolute;
+    inset: 0;
+}
+
+/* ── Hero ─────────────────────────────────────────────── */
+/* No background — the hero sits on the page-level image */
+.home-hero {
+    position: absolute;
+    top: 15%;
+    left: 0;
+    right: 0;
+}
+
+.home-hero__container {
+    max-width: 1126px;
+    margin: 0 2%;
+    padding: 0 2rem;
+    box-sizing: border-box;
+    /*background: green;*/
+}
+
+.home-hero__content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.home-hero__title {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: clamp(2.4rem, 4vw, 4rem);
+    font-weight: 800;
+    color: var(--color-on-surface);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin: 0;
+    /*background: blue;*/
+}
+
+.home-hero__subtitle {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    color: var(--color-on-surface-secondary);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.home-hero__actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+}
+
+.home-hero__actions .btn {
+    font-size: 1.05rem;
+    padding: 0.85rem 2rem;
+}
+
+/* ── Mobile ───────────────────────────────────────────── */
+/* Mobilon a .home-page explicit magasságot kap (>100svh), a háttérkép
+   background-size: cover-rel kitölti → valódi görgetés, a túllógó szélek
+   levágódnak (object-position: center). */
+@media (max-width: 768px) {
+    .home-page {
+        min-height: 160svh;
+        background-position: 80% center;
+    }
+
+    .home-page__bg {
+        display: none;
+    }
+
+    .home-hero {
+        top: 12%;
+    }
+
+    .home-hero__container {
+        margin: 0;
+        padding: 0 1.5rem;
+    }
+
+    .home-hero__subtitle {
+        transform: translateY(-2rem);
+        max-width: 70%;
+    }
+
+    .home-hero__content {
+        gap: 3rem;
+    }
+
+    .home-hero__actions {
+        flex-direction: column;
+    }
+
+    .home-hero__actions .btn {
+        justify-content: center;
+        width: 100%;
+    }
+}

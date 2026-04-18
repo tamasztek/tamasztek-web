@@ -22,8 +22,12 @@ const ComingSoonPage: React.FC = () => {
 
       <nav className="coming-soon-nav" aria-label="Főnavigáció">
         <div className="coming-soon-nav__brand">
-            <img src={logo} alt="TámaszTÉK Egyesület" className="coming-soon-nav__logo" />
-          </div>
+          <img
+            src={logo}
+            alt="TámaszTÉK Egyesület"
+            className="coming-soon-nav__logo"
+          />
+        </div>
       </nav>
 
       <main className="coming-soon-main">
