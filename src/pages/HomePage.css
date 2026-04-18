@@ -3,6 +3,7 @@
     text-align: left;
     width: 100vw;
     margin-left: calc(50% - 50vw);
+    background-image: url("../assets/background_1.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -82,6 +83,7 @@
    levágódnak (object-position: center). */
 @media (max-width: 768px) {
     .home-page {
+        background-image: url("../assets/mobile_bg.png");
         min-height: 160svh;
         background-position: 80% center;
     }
@@ -105,7 +107,7 @@
     }
 
     .home-hero__content {
-        gap: 3rem;
+        gap: 4rem;
     }
 
     .home-hero__actions {

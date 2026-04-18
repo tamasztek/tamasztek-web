@@ -6,7 +6,7 @@ import "./HomePage.css";
 
 const HomePage: React.FC = () => {
   return (
-    <div className="home-page" style={{ backgroundImage: `url(${heroBg})` }}>
+    <div className="home-page">
       {/* Desktop: <img> drives natural page height → full image, scrollable */}
       <img src={heroBg} alt="" className="home-page__bg" aria-hidden="true" />
 
