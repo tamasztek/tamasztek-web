@@ -15,6 +15,23 @@ export const ChevronRightIcon = () => (
   </svg>
 );
 
+export const ChevronLeftIcon = () => (
+  <svg
+    width="1em"
+    height="1em"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="3"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <polyline points="15 18 9 12 15 6" />
+  </svg>
+);
+
 export const HandshakeIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"

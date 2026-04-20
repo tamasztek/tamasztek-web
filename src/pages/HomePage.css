@@ -31,6 +31,23 @@
     right: 0;
 }
 
+/* ── PastProjects wrapper ─────────────────────────────── */
+/* Positioned over the wavy blue area of the hero background */
+.home-page__past {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    right: 0;
+}
+
+/* ── Mission wrapper ──────────────────────────────────── */
+.home-page__mission {
+    position: absolute;
+    top: 65%;
+    left: 0;
+    right: 0;
+}
+
 .home-hero__container {
     max-width: 1126px;
     margin: 0 2%;
@@ -83,8 +100,8 @@
    levágódnak (object-position: center). */
 @media (max-width: 768px) {
     .home-page {
-        background-image: url("../assets/mobile_bg.png");
-        min-height: 160svh;
+        background-image: url("../assets/mobile_image_done.png");
+        min-height: 250svh;
         background-position: 80% center;
     }
 
@@ -93,7 +110,15 @@
     }
 
     .home-hero {
-        top: 12%;
+        top: 10%;
+    }
+
+    .home-page__past {
+        top: 34%;
+    }
+
+    .home-page__mission {
+        top: 72%;
     }
 
     .home-hero__container {

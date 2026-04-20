@@ -1,0 +1,27 @@
+.illustrated-tag {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.illustrated-tag__image {
+    width: clamp(96px, 12vw, 144px);
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    display: block;
+}
+
+.illustrated-tag__label {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: clamp(1rem, 1.4vw, 1.25rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--color-on-surface);
+    text-align: center;
+    width: 100%;
+    margin: 0;
+}

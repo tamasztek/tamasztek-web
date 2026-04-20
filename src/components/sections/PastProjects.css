@@ -1,0 +1,178 @@
+.past-projects {
+    padding: 0;
+    background: transparent;
+}
+
+.past-projects__container {
+    max-width: 1326px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    box-sizing: border-box;
+}
+
+.past-projects__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.past-projects__title {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--color-on-surface);
+    margin: 0;
+}
+
+.past-projects__nav {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.past-projects__nav-btn {
+    width: 2.75rem;
+    height: 2.75rem;
+    border: none;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--color-primary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+    transition:
+        background-color 150ms ease,
+        transform 150ms ease;
+}
+
+.past-projects__nav-btn:hover {
+    transform: translateY(-1px);
+}
+
+.past-projects__nav-btn:focus-visible {
+    outline: 3px solid rgba(0, 97, 156, 0.5);
+    outline-offset: 2px;
+}
+
+/* Default: flex-distribute layout, no slider */
+.past-projects__track {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0 0 1rem;
+    justify-content: center;
+}
+
+.past-projects__card {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: 320px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+/* Slider mode: horizontal scroll + fixed card widths */
+.past-projects--slider .past-projects__track {
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.past-projects--slider .past-projects__track::-webkit-scrollbar {
+    display: none;
+}
+
+.past-projects--slider .past-projects__card {
+    flex: 0 0 calc((100% - (1.5rem * 3.3)) / 3.3);
+    max-width: none;
+    scroll-snap-align: start;
+}
+
+.past-projects__media {
+    aspect-ratio: 4 / 3;
+    width: 100%;
+}
+
+.past-projects__body {
+    padding: 1.25rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.past-projects__value {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: clamp(2.25rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--color-primary);
+    line-height: 1;
+}
+
+.past-projects__label {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-on-surface-secondary);
+}
+
+/* Dots: hidden by default; shown only in slider mode on mobile */
+.past-projects__dots {
+    display: none;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+    padding: 0;
+    list-style: none;
+}
+
+.past-projects__dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: rgba(8, 54, 103, 0.2);
+    transition:
+        background-color 200ms ease,
+        transform 200ms ease;
+}
+
+.past-projects__dot--active {
+    background: var(--color-primary);
+    transform: scale(1.4);
+}
+
+@media (max-width: 768px) {
+    .past-projects__container {
+        padding: 0 1.5rem;
+    }
+
+    .past-projects__header {
+        margin-bottom: 1.25rem;
+    }
+
+    .past-projects__nav {
+        display: none;
+    }
+
+    .past-projects--slider .past-projects__card {
+        flex: 0 0 100%;
+        max-width: none;
+    }
+
+    .past-projects--slider .past-projects__dots {
+        display: flex;
+    }
+}
