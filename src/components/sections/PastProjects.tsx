@@ -13,6 +13,7 @@ type Stat = {
   value: number;
   label: string;
   gradient: string;
+  wave: string;
 };
 
 const STATS: Stat[] = [
@@ -21,24 +22,28 @@ const STATS: Stat[] = [
     value: 320,
     label: "Elültetett fa",
     gradient: "linear-gradient(135deg, #0891b2 0%, #00619c 100%)",
+    wave: "M0,15 C100,30 200,0 300,15 C400,30 450,5 500,15 L500,30 L0,30 Z",
   },
   {
     id: "participants",
     value: 480,
     label: "Résztvevő",
     gradient: "linear-gradient(135deg, #fbb03b 0%, #e8991e 100%)",
+    wave: "M0,20 C80,5 160,28 240,14 C320,2 410,26 500,18 L500,30 L0,30 Z",
   },
   {
     id: "programs",
     value: 12,
     label: "Program",
     gradient: "linear-gradient(135deg, #1a7abf 0%, #083667 100%)",
+    wave: "M0,10 C60,26 140,4 220,18 C300,30 380,8 500,20 L500,30 L0,30 Z",
   },
   {
     id: "volunteers",
     value: 25,
     label: "Önkéntes",
     gradient: "linear-gradient(135deg, #0aa0ca 0%, #0670a0 100%)",
+    wave: "M0,18 C120,8 200,28 280,12 C360,0 440,22 500,14 L500,30 L0,30 Z",
   },
 ];
 
@@ -140,7 +145,13 @@ const PastProjects: React.FC = () => {
                 className="past-projects__media"
                 style={{ background: s.gradient }}
                 aria-hidden="true"
-              />
+              >
+                <div className="past-projects__wave">
+                  <svg viewBox="0 0 500 30" preserveAspectRatio="none" aria-hidden="true">
+                    <path d={s.wave} fill="#fff" />
+                  </svg>
+                </div>
+              </div>
               <div className="past-projects__body">
                 <span className="past-projects__value">{s.value}</span>
                 <span className="past-projects__label">{s.label}</span>

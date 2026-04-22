@@ -1,4 +1,6 @@
 :root {
+    --font-base: "Josefin Sans", sans-serif;
+
     --color-primary: #00619c;
     --color-primary-container: #1a7abf;
     --color-on-primary: #ffffff;

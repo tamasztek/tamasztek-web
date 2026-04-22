@@ -64,18 +64,15 @@
 }
 
 .home-hero__title {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: clamp(2.4rem, 4vw, 4rem);
     font-weight: 800;
     color: var(--color-on-surface);
     letter-spacing: -0.02em;
     line-height: 1.1;
     margin: 0;
-    /*background: blue;*/
 }
 
 .home-hero__subtitle {
-    font-family: "Plus Jakarta Sans", sans-serif;
     font-size: clamp(1rem, 1.8vw, 1.2rem);
     color: var(--color-on-surface-secondary);
     margin: 0;
