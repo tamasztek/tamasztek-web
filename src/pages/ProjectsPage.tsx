@@ -1,0 +1,146 @@
+import { useState, useEffect } from "react";
+import { fetchProjects } from "../services/projectService";
+import type { Project } from "../types/project";
+import Button from "../components/ui/Button";
+import { ChevronRightIcon } from "../components/ui/icons";
+import "./ProjectsPage.css";
+
+const ProjectsPage: React.FC = () => {
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [page, setPage] = useState(0);
+  const [hasMore, setHasMore] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetchProjects(0)
+      .then((data) => {
+        setProjects(data.items);
+        setHasMore(data.page < data.totalPages - 1);
+      })
+      .catch(() => setError("Nem sikerült betölteni a projekteket."))
+      .finally(() => setLoading(false));
+  }, []);
+
+  const loadMore = () => {
+    const nextPage = page + 1;
+    setLoadingMore(true);
+    fetchProjects(nextPage)
+      .then((data) => {
+        setProjects((prev) => [...prev, ...data.items]);
+        setHasMore(data.page < data.totalPages - 1);
+        setPage(nextPage);
+      })
+      .catch(() => setError("Nem sikerült betölteni a további projekteket."))
+      .finally(() => setLoadingMore(false));
+  };
+
+  const formatDate = (dateStr: string) =>
+    new Date(dateStr).toLocaleDateString("hu-HU", {
+      year: "numeric",
+      month: "long",
+    });
+
+  return (
+    <main className="projects-page">
+      <div className="projects-page__container">
+        <h1 className="projects-page__title">Projektjeink</h1>
+
+        {loading && (
+          <p className="projects-page__status">Betöltés...</p>
+        )}
+
+        {error && (
+          <p className="projects-page__status projects-page__status--error">
+            {error}
+          </p>
+        )}
+
+        {!loading && !error && projects.length === 0 && (
+          <p className="projects-page__status">Még nincsenek projektek.</p>
+        )}
+
+        <ul className="projects-list" role="list">
+          {projects.map((project, index) => (
+            <li key={project.id} className="project-item">
+              {index > 0 && <hr className="project-divider" aria-hidden="true" />}
+              <article
+                className={`project-card${index % 2 !== 0 ? " project-card--reversed" : ""}`}
+              >
+                {project.coverImage ? (
+                  <figure className="project-card__figure">
+                    <img
+                      src={project.coverImage.url}
+                      alt={project.coverImage.altText ?? project.title}
+                      className="project-card__image"
+                      loading="lazy"
+                    />
+                  </figure>
+                ) : (
+                  <div
+                    className="project-card__image-placeholder"
+                    aria-hidden="true"
+                  />
+                )}
+
+                <div className="project-card__body">
+                  <h2 className="project-card__title">{project.title}</h2>
+                  {project.subtitle && (
+                    <p className="project-card__subtitle">{project.subtitle}</p>
+                  )}
+                  {project.description && (
+                    <p className="project-card__description">
+                      {project.description}
+                    </p>
+                  )}
+                  <div className="project-card__meta">
+                    {project.location && (
+                      <span className="project-card__meta-item">
+                        {project.location}
+                      </span>
+                    )}
+                    {project.startDate && (
+                      <span className="project-card__meta-item">
+                        {formatDate(project.startDate)}
+                        {project.endDate &&
+                          ` – ${formatDate(project.endDate)}`}
+                      </span>
+                    )}
+                    {project.participantCount != null && (
+                      <span className="project-card__meta-item">
+                        {project.participantCount} résztvevő
+                      </span>
+                    )}
+                    {project.volunteerCount != null && (
+                      <span className="project-card__meta-item">
+                        {project.volunteerCount} önkéntes
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </article>
+            </li>
+          ))}
+        </ul>
+
+        {hasMore && (
+          <div className="projects-page__load-more">
+            <Button variant="ghost" onClick={loadMore}>
+              {loadingMore
+                ? "Betöltés..."
+                : "Megnézem a további projekteket"}
+              {!loadingMore && (
+                <span className="btn__chevron">
+                  <ChevronRightIcon />
+                </span>
+              )}
+            </Button>
+          </div>
+        )}
+      </div>
+    </main>
+  );
+};
+
+export default ProjectsPage;
