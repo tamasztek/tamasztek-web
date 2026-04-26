@@ -14,6 +14,7 @@ const NAV_LINKS: NavLink[] = [
   { label: "Bemutatkozás", to: null },
   { label: "Hírek", to: null },
   { label: "Projektek", to: "/projektek" },
+  { label: "Galéria", to: "/galeria" },
   { label: "Önkéntesség", to: null },
 ];
 
