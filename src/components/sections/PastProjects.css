@@ -6,7 +6,7 @@
 .past-projects__container {
     max-width: 1326px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 3vw 2rem;
     box-sizing: border-box;
 }
 
@@ -70,7 +70,7 @@
 .past-projects__card {
     flex: 1 1 0;
     min-width: 0;
-    max-width: 320px;
+    max-width: clamp(260px, 21vw, 400px);
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -136,7 +136,7 @@
 }
 
 .past-projects__label {
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 1.1vw, 1.4rem);
     font-weight: 500;
     color: var(--color-on-surface-secondary);
 }

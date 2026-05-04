@@ -3,6 +3,7 @@
     text-align: left;
     width: 100vw;
     margin-left: calc(50% - 50vw);
+    background-color: #b8d8f0;
     background-image: url("../assets/background_1.png");
     background-size: cover;
     background-position: center;
@@ -24,26 +25,28 @@
 
 /* ── Hero ─────────────────────────────────────────────── */
 /* No background — the hero sits on the page-level image */
+/* top: 8% × AR(2.509) = 20.07vw → locked to image at any width */
 .home-hero {
     position: absolute;
-    top: 15%;
+    top: 20vw;
     left: 0;
     right: 0;
 }
 
 /* ── PastProjects wrapper ─────────────────────────────── */
-/* Positioned over the wavy blue area of the hero background */
+/* top: 30% × AR(2.509) = 75.27vw */
 .home-page__past {
     position: absolute;
-    top: 40%;
+    top: 75.3vw;
     left: 0;
     right: 0;
 }
 
 /* ── Mission wrapper ──────────────────────────────────── */
+/* top: 52% × AR(2.509) = 130.47vw */
 .home-page__mission {
     position: absolute;
-    top: 65%;
+    top: 130.4vw;
     left: 0;
     right: 0;
 }
@@ -53,7 +56,6 @@
     margin: 0 2%;
     padding: 0 2rem;
     box-sizing: border-box;
-    /*background: green;*/
 }
 
 .home-hero__content {
@@ -97,7 +99,7 @@
    levágódnak (object-position: center). */
 @media (max-width: 768px) {
     .home-page {
-        background-image: url("../assets/mobile_image_done.png");
+        background-image: url("../assets/mobile_bg_new_2.webp");
         min-height: 250svh;
         background-position: 80% center;
     }
@@ -107,15 +109,15 @@
     }
 
     .home-hero {
-        top: 10%;
+        top: 25svh;
     }
 
     .home-page__past {
-        top: 34%;
+        top: 92svh;
     }
 
     .home-page__mission {
-        top: 72%;
+        top: 155svh;
     }
 
     .home-hero__container {

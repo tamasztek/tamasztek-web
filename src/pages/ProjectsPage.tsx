@@ -14,6 +14,7 @@ const ProjectsPage: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    console.log("ProjectsPage mounted");
     fetchProjects(0)
       .then((data) => {
         setProjects(data.items);
@@ -24,6 +25,7 @@ const ProjectsPage: React.FC = () => {
   }, []);
 
   const loadMore = () => {
+    console.log("In loadmore");
     const nextPage = page + 1;
     setLoadingMore(true);
     fetchProjects(nextPage)
@@ -47,9 +49,7 @@ const ProjectsPage: React.FC = () => {
       <div className="projects-page__container">
         <h1 className="projects-page__title">Projektjeink</h1>
 
-        {loading && (
-          <p className="projects-page__status">Betöltés...</p>
-        )}
+        {loading && <p className="projects-page__status">Betöltés...</p>}
 
         {error && (
           <p className="projects-page__status projects-page__status--error">
@@ -64,7 +64,9 @@ const ProjectsPage: React.FC = () => {
         <ul className="projects-list" role="list">
           {projects.map((project, index) => (
             <li key={project.id} className="project-item">
-              {index > 0 && <hr className="project-divider" aria-hidden="true" />}
+              {index > 0 && (
+                <hr className="project-divider" aria-hidden="true" />
+              )}
               <article
                 className={`project-card${index % 2 !== 0 ? " project-card--reversed" : ""}`}
               >
@@ -103,8 +105,7 @@ const ProjectsPage: React.FC = () => {
                     {project.startDate && (
                       <span className="project-card__meta-item">
                         {formatDate(project.startDate)}
-                        {project.endDate &&
-                          ` – ${formatDate(project.endDate)}`}
+                        {project.endDate && ` – ${formatDate(project.endDate)}`}
                       </span>
                     )}
                     {project.participantCount != null && (
@@ -127,9 +128,7 @@ const ProjectsPage: React.FC = () => {
         {hasMore && (
           <div className="projects-page__load-more">
             <Button variant="ghost" onClick={loadMore}>
-              {loadingMore
-                ? "Betöltés..."
-                : "Megnézem a további projekteket"}
+              {loadingMore ? "Betöltés..." : "Megnézem a további projekteket"}
               {!loadingMore && (
                 <span className="btn__chevron">
                   <ChevronRightIcon />

@@ -2,13 +2,22 @@
     width: 100vw;
     margin-left: calc(50% - 50vw);
     min-height: 100vh;
+    position: relative;
+    isolation: isolate;
+    padding-top: 6rem;
+    padding-bottom: 5rem;
+}
+
+.projects-page::before {
+    content: '';
+    position: fixed;
+    inset: 0;
     background-image: url('../assets/cloud_bg.png');
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
     background-color: #f4faff;
-    padding-top: 6rem;
-    padding-bottom: 5rem;
+    z-index: -1;
 }
 
 .projects-page__container {

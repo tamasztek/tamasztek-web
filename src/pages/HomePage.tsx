@@ -1,11 +1,20 @@
+import { useEffect } from "react";
 import Button from "../components/ui/Button";
 import { HandshakeIcon, ChevronRightIcon } from "../components/ui/icons";
 import PastProjects from "../components/sections/PastProjects";
 import Mission from "../components/sections/Mission";
-import heroBg from "../assets/wide_background.png";
+import heroBg from "../assets/best_home_bg_7.png";
 import "./HomePage.css";
 
 const HomePage: React.FC = () => {
+  useEffect(() => {
+    document.documentElement.style.overscrollBehavior = "none";
+    document.body.style.overscrollBehavior = "none";
+    return () => {
+      document.documentElement.style.overscrollBehavior = "";
+      document.body.style.overscrollBehavior = "";
+    };
+  }, []);
   return (
     <div className="home-page">
       {/* Desktop: <img> drives natural page height → full image, scrollable */}

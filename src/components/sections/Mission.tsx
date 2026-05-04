@@ -1,10 +1,10 @@
 import IllustratedTag from "../ui/IllustratedTag";
 import Button from "../ui/Button";
 import { ChevronRightIcon } from "../ui/icons";
-import church from "../../assets/mission/church.png";
-import community from "../../assets/mission/community.png";
-import tree from "../../assets/mission/tree.png";
-import family from "../../assets/mission/family.png";
+import church from "../../assets/mission/church_cropped.png";
+import community from "../../assets/mission/community_cropped.png";
+import tree from "../../assets/mission/tree_cropped.png";
+import family from "../../assets/mission/family_cropped.png";
 import doboz from "../../assets/mission/doboz_atlatszo.png";
 import "./Mission.css";
 

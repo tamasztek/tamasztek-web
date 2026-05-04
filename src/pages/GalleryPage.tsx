@@ -56,13 +56,7 @@ const GalleryPage: React.FC = () => {
         <div className="gallery-page__grid">
           {loading
             ? Array.from({ length: 8 }).map((_, i) => (
-                <div key={i} className="album-card-skeleton" aria-hidden="true">
-                  <div className="album-card-skeleton__image" />
-                  <div className="album-card-skeleton__body">
-                    <div className="album-card-skeleton__title" />
-                    <div className="album-card-skeleton__count" />
-                  </div>
-                </div>
+                <div key={i} className="album-card-skeleton" aria-hidden="true" />
               ))
             : albums.map((album) => (
                 <article key={album.publicId} className="album-card">
@@ -85,11 +79,12 @@ const GalleryPage: React.FC = () => {
                         aria-hidden="true"
                       />
                     )}
-                    <div className="album-card__body">
-                      <h2 className="album-card__name">{album.name}</h2>
-                      <span className="album-card__count">
-                        {album.imageCount} kép
+                    <div className="album-card__overlay">
+                      <span className="album-card__badge">
+                        {album.imageCount} KÉP
                       </span>
+                      <h2 className="album-card__name">{album.name}</h2>
+                      <div className="album-card__underline" />
                     </div>
                   </Link>
                 </article>

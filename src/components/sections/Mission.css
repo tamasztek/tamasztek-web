@@ -2,13 +2,13 @@
     background-image: url("../../assets/mission/mission_bg_9.png");
     background-size: cover;
     background-position: top;
-    min-height: 500px;
+    min-height: clamp(500px, 40vw, 900px);
 }
 
 .mission__container {
     max-width: 90%;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 4vw 2rem;
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -19,7 +19,7 @@
 }
 
 .mission__right {
-    flex: 0 0 30%;
+    flex: 0 0 20%;
     display: flex;
     transform: translateY(15%) translateX(-10%);
 }
@@ -37,18 +37,51 @@
 }
 
 .mission__list {
+    position: relative;
     display: flex;
-    align-items: flex-start;
     list-style: none;
     margin: 0;
     padding: 0;
     min-width: 100%;
+    z-index: 1;
+}
+
+.mission__list-bg {
+    position: absolute;
+    top: 75%;
+    left: -5%;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.mission__list-bg img {
+    width: 100%;
+    height: 140%;
+    object-fit: cover;
+}
+
+.mission__list_decor {
+    position: absolute;
+    bottom: -175px;
+    width: 100%;
+    height: 200px;
+    background: rgb(255, 122, 255, 0.6);
+    overflow: visible;
+}
+
+.mission__list_decor-wave {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    line-height: 0;
 }
 
 .mission__item {
     display: flex;
     justify-content: center;
     min-width: 25%;
+    align-items: flex-end;
 }
 
 .mission__item + .mission__item .illustrated-tag__label {
@@ -101,6 +134,36 @@
     align-self: flex-end;
 }
 
+/* ── Tablet: card wraps below the list, background removed ── */
+
+@media (max-width: 1100px) {
+    .mission {
+        background-image: none;
+        min-height: unset;
+    }
+
+    .mission__container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .mission__left {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+
+    .mission__right {
+        flex: 1 1 100%;
+        width: 100%;
+        transform: none;
+    }
+
+    .mission__card {
+        max-width: 50vw;
+        margin: 0 auto;
+    }
+}
+
 /* ── Mobile ───────────────────────────────────────────── */
 
 @media (max-width: 768px) {
@@ -116,7 +179,7 @@
     }
 
     .mission__right {
-        flex: 1 1 100%;
+        flex: 1 1 60%;
         width: 100%;
     }
 
@@ -139,7 +202,11 @@
         padding-left: 0;
     }
 
-    .mission__card-image {
-        width: 100px;
+    .mission__card {
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+        /* TODO  normálisan megoldani a stílusozást.*/
+        transform: translateX(-5%);
     }
 }

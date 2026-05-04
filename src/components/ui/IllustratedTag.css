@@ -12,14 +12,14 @@
     margin: 0;
     padding: 0;
     width: 100%;
+    z-index: 1;
 }
 
 .illustrated-tag__image {
-    width: clamp(96px, 12vw, 144px);
-    aspect-ratio: 1;
+    width: clamp(120px, 18vw, 114px);
     object-fit: cover;
-    border-radius: var(--radius-lg);
     display: block;
+    margin: 10px 0;
 }
 
 .illustrated-tag__label {
