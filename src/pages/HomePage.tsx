@@ -3,7 +3,7 @@ import Button from "../components/ui/Button";
 import { HandshakeIcon, ChevronRightIcon } from "../components/ui/icons";
 import PastProjects from "../components/sections/PastProjects";
 import Mission from "../components/sections/Mission";
-import heroBg from "../assets/best_home_bg_7.png";
+import heroBg from "../assets/best_home_bg_7.webp";
 import "./HomePage.css";
 
 const HomePage: React.FC = () => {

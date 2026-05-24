@@ -1,0 +1,78 @@
+.home-renewd {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    font-family: var(--rd-font-body);
+    color: var(--rd-text-dark);
+    text-align: left;
+}
+
+.home-renewd * {
+    box-sizing: border-box;
+}
+
+.home-renewd__section-inner {
+    position: relative;
+    width: var(--rd-page-width);
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* ---------- Shared buttons (used in Hero + Mission) ---------- */
+
+.hr-btn {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: var(--rd-font-body);
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+    border: 0;
+}
+
+.hr-btn--donate {
+    background: var(--rd-color-donate);
+    color: var(--rd-color-donate-text);
+}
+
+.hr-btn--join {
+    background: var(--rd-color-join);
+    color: #fff;
+}
+
+.hr-btn--lg {
+    gap: 21.78px;
+    padding: 15.972px 58.08px;
+    font-size: 17.42px;
+    height: 53.724px;
+}
+
+.hr-btn--join.hr-btn--lg {
+    padding-left: 43.56px;
+}
+
+.hr-btn--sm {
+    gap: 15px;
+    padding: 11px 40px;
+    font-size: 12px;
+    height: 37px;
+}
+
+.hr-btn__inner {
+    display: inline-flex;
+    align-items: center;
+    gap: 7.26px;
+}
+
+.hr-btn__icon {
+    width: 14.52px;
+    height: 14.52px;
+    object-fit: contain;
+}
+
+.hr-btn__arrow {
+    width: 15px;
+    height: 9px;
+    transform: rotate(90deg);
+}

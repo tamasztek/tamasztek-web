@@ -1,0 +1,56 @@
+import heroVillage from "../../assets/renewd/hero_image.png";
+import heroHandwriteArrow from "../../assets/renewd/arrow_downward.svg";
+import arrowIcon from "../../assets/renewd/arrow-icon.svg";
+import handshakeIcon from "../../assets/renewd/handshake-icon.png";
+import "./HeroRenewd.css";
+
+function HeroRenewd() {
+  return (
+    <section className="home-renewd__hero">
+      <div className="home-renewd__section-inner">
+        <img
+          src={heroVillage}
+          alt="Támaszték falu illusztráció"
+          className="home-renewd__hero-illu"
+        />
+
+        <div className="home-renewd__hero-content">
+          <div className="home-renewd__hero-text">
+            <h1 className="home-renewd__hero-title">Támaszték Egyesület</h1>
+            <h2 className="home-renewd__hero-subtitle">
+              Hit. Közösség. Cselekvés.
+            </h2>
+            <p className="home-renewd__hero-lead">
+              Összefogunk az emberekért
+              <br />
+              és a teremtett világért.
+            </p>
+          </div>
+
+          <div className="home-renewd__hero-actions">
+            <a href="#donate" className="hr-btn hr-btn--donate hr-btn--lg">
+              <span>Adományozok</span>
+              <img src={arrowIcon} alt="" className="hr-btn__arrow" />
+            </a>
+            <a href="#join" className="hr-btn hr-btn--join hr-btn--lg">
+              <span className="hr-btn__inner">
+                <img src={handshakeIcon} alt="" className="hr-btn__icon" />
+                <span>Csatlakozom</span>
+              </span>
+              <img src={arrowIcon} alt="" className="hr-btn__arrow" />
+            </a>
+          </div>
+        </div>
+
+        <p className="home-renewd__hero-handwrite">Tudj meg többet rólunk!</p>
+        <img
+          src={heroHandwriteArrow}
+          alt=""
+          className="home-renewd__hero-handwrite-arrow"
+        />
+      </div>
+    </section>
+  );
+}
+
+export default HeroRenewd;

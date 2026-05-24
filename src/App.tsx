@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage";
+import HomePageRenewd from "./pages/HomePageRenewd";
 import ProjectsPage from "./pages/ProjectsPage";
 import GalleryPage from "./pages/GalleryPage";
 import AlbumDetailPage from "./pages/AlbumDetailPage";
@@ -12,14 +12,33 @@ function App() {
   if (devInProgress) return <ComingSoonPage />;
   return (
     <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/projektek" element={<ProjectsPage />} />
-          <Route path="/galeria" element={<GalleryPage />} />
-          <Route path="/galeria/:publicId" element={<AlbumDetailPage />} />
-        </Routes>
-      </Layout>
+      <Routes>
+        <Route path="/" element={<HomePageRenewd />} />
+        <Route
+          path="/projektek"
+          element={
+            <Layout>
+              <ProjectsPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/galeria"
+          element={
+            <Layout>
+              <GalleryPage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/galeria/:publicId"
+          element={
+            <Layout>
+              <AlbumDetailPage />
+            </Layout>
+          }
+        />
+      </Routes>
     </BrowserRouter>
   );
 }
