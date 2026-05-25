@@ -1,6 +1,7 @@
 import { useState } from "react";
 import logo from "../../assets/renewd/logo.png";
 import arrowIcon from "../../assets/renewd/arrow-icon.svg";
+import facebookLogo from "../../assets/renewd/facebook_logo.png";
 import "./NavbarRenewd.css";
 
 const menuItems = [
@@ -32,6 +33,15 @@ function NavbarRenewd() {
           ))}
         </nav>
         <div className="navbar-renewd__actions">
+          <a
+            href="https://www.facebook.com/profile.php?id=61590037333398"
+            className="navbar-renewd__social"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+          >
+            <img src={facebookLogo} alt="" />
+          </a>
           <a href="#donate" className="navbar-renewd__cta">
             <span>Adományozok</span>
             <img src={arrowIcon} alt="" className="navbar-renewd__cta-arrow" />

@@ -6,6 +6,8 @@ import missionTree from "../../assets/renewd/mission-tree.png";
 import missionCommunity from "../../assets/renewd/mission-community.png";
 import donateBox from "../../assets/renewd/donate-box.png";
 import arrowIcon from "../../assets/renewd/arrow-icon.svg";
+import arrowStartMobile from "../../assets/renewd/arrow_start_mobile.svg";
+import arrowFinishMobile from "../../assets/renewd/arrow_finish_mobile.svg";
 import "./MissionRenewd.css";
 
 function DonateButton({ size = "lg" }: { size?: "lg" | "sm" }) {
@@ -54,6 +56,26 @@ function MissionRenewd() {
           alt="Ha neked is fontosak ezek az értékek"
           className="home-renewd__mission-arrow-text"
         />
+
+        <div className="home-renewd__mission-arrow-group">
+          <img
+            src={arrowStartMobile}
+            alt=""
+            aria-hidden="true"
+            className="home-renewd__mission-arrow-mobile home-renewd__mission-arrow-mobile--start"
+          />
+
+          <p className="home-renewd__mission-intro-mobile">
+            Ha neked is fontosak ezek az értékek
+          </p>
+
+          <img
+            src={arrowFinishMobile}
+            alt=""
+            aria-hidden="true"
+            className="home-renewd__mission-arrow-mobile home-renewd__mission-arrow-mobile--finish"
+          />
+        </div>
 
         <p className="home-renewd__mission-handwrite">
           vegyél részt programjainkon

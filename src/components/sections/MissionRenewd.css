@@ -94,6 +94,11 @@
     pointer-events: none;
 }
 
+/* Mobile-only arrow pieces + intro text (desktop uses mission-arrow-text.svg) */
+.home-renewd__mission-arrow-group {
+    display: none;
+}
+
 .home-renewd__mission-handwrite {
     position: absolute;
     left: 1055.5px;
@@ -166,13 +171,47 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 32px;
+        gap: 24px;
         padding-top: 40px;
         padding-bottom: 48px;
     }
 
     .home-renewd__mission-arrow-text {
         display: none;
+    }
+
+    .home-renewd__mission-arrow-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        order: 2;
+        width: 100%;
+    }
+
+    .home-renewd__mission-arrow-mobile {
+        pointer-events: none;
+    }
+
+    .home-renewd__mission-arrow-mobile--start {
+        width: 52px;
+        height: auto;
+    }
+
+    .home-renewd__mission-intro-mobile {
+        width: 100%;
+        margin: 0;
+        font-family: var(--rd-font-handwrite);
+        font-size: 26px;
+        font-weight: 400;
+        line-height: 1.4;
+        color: var(--rd-color-primary);
+        text-align: center;
+    }
+
+    .home-renewd__mission-arrow-mobile--finish {
+        width: auto;
+        height: 150px;
     }
 
     .home-renewd__mission-wheel {
@@ -252,7 +291,7 @@
 
     .home-renewd__mission-handwrite {
         position: static;
-        order: 2;
+        order: 5;
         width: 100%;
         font-size: 24px;
         line-height: 1.4;
@@ -263,7 +302,9 @@
 
     .home-renewd__donate-card {
         position: relative;
-        order: 3;
+        left: auto;
+        top: auto;
+        order: 6;
         width: 100%;
         max-width: 460px;
         height: 200px;
