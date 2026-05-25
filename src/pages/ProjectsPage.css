@@ -1,35 +1,69 @@
-.projects-page {
+.projects-renewd {
     width: 100vw;
     margin-left: calc(50% - 50vw);
-    min-height: 100vh;
+    font-family: var(--rd-font-body);
+    color: var(--rd-text-dark);
+    text-align: left;
+}
+
+.projects-renewd * {
+    box-sizing: border-box;
+}
+
+.projects-page {
     position: relative;
+    overflow: hidden;
     isolation: isolate;
+    min-height: 100vh;
     padding-top: 6rem;
     padding-bottom: 5rem;
+    background: var(--rd-bg-sand);
+    font-family: var(--rd-font-body);
 }
 
-.projects-page::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url('../assets/cloud_bg.png');
-    background-size: cover;
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-color: #f4faff;
-    z-index: -1;
+/* ── Decorative corner blobs ──────────────────────────── */
+.projects-page__blobs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    z-index: 0;
 }
 
+.projects-page__blob {
+    position: absolute;
+    top: 0;
+    left: 0;
+    user-select: none;
+    pointer-events: none;
+}
+
+.projects-page__blob--orange {
+    z-index: 1;
+    transform: translate(-80px, -20px);
+}
+
+.projects-page__blob--teal {
+    z-index: 2;
+    transform: translate(-80px, -20px);
+}
+
+/* ── Container ────────────────────────────────────────── */
 .projects-page__container {
+    position: relative;
+    z-index: 1;
     max-width: 1126px;
     margin: 0 auto;
     padding: 0 2rem;
 }
 
 .projects-page__title {
+    font-family: var(--rd-font-body);
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
-    color: var(--color-on-surface);
+    color: var(--rd-color-primary);
     letter-spacing: -0.02em;
     margin: 0 0 3rem;
     line-height: 1.1;
@@ -37,7 +71,7 @@
 
 .projects-page__status {
     font-size: 1rem;
-    color: var(--color-on-surface-secondary);
+    color: var(--rd-text-muted);
     text-align: center;
     padding: 4rem 0;
 }
@@ -55,7 +89,7 @@
 
 .project-divider {
     border: none;
-    border-top: 1px solid rgba(0, 97, 156, 0.1);
+    border-top: 1px solid var(--rd-color-border);
     margin: 3rem 0;
 }
 
@@ -74,7 +108,7 @@
 .project-card__figure {
     flex: 0 0 45%;
     margin: 0;
-    border-radius: var(--radius-lg);
+    border-radius: 16px;
     overflow: hidden;
 }
 
@@ -87,8 +121,8 @@
 .project-card__image-placeholder {
     flex: 0 0 45%;
     aspect-ratio: 4 / 3;
-    border-radius: var(--radius-lg);
-    background: linear-gradient(135deg, #dbeef8, #bdd9f0);
+    border-radius: 16px;
+    background: var(--rd-card-bg);
 }
 
 /* ── Text side ────────────────────────────────────────── */
@@ -100,9 +134,10 @@
 }
 
 .project-card__title {
+    font-family: var(--rd-font-body);
     font-size: clamp(1.4rem, 2.5vw, 2rem);
     font-weight: 800;
-    color: var(--color-on-surface);
+    color: var(--rd-text-dark);
     letter-spacing: -0.02em;
     margin: 0;
     line-height: 1.2;
@@ -111,13 +146,13 @@
 .project-card__subtitle {
     font-size: 1rem;
     font-weight: 600;
-    color: var(--color-primary);
+    color: var(--rd-color-primary);
     margin: 0;
 }
 
 .project-card__description {
     font-size: 0.95rem;
-    color: var(--color-on-surface-secondary);
+    color: var(--rd-text-body);
     margin: 0;
     line-height: 1.7;
 }
@@ -132,9 +167,9 @@
 
 .project-card__meta-item {
     font-size: 0.82rem;
-    color: var(--color-on-surface-secondary);
-    background: rgba(0, 97, 156, 0.07);
-    border-radius: var(--radius-sm);
+    color: var(--rd-text-muted);
+    background: var(--rd-card-bg);
+    border-radius: 999px;
     padding: 0.25rem 0.75rem;
     white-space: nowrap;
 }
@@ -167,10 +202,19 @@
     .project-card__image-placeholder {
         flex: none;
         width: 100%;
-        border-radius: var(--radius-sm);
     }
 
     .project-divider {
         margin: 2rem 0;
+    }
+
+    .projects-page__blob {
+        transform: scale(0.5);
+        transform-origin: top left;
+    }
+
+    .projects-page__blob--orange {
+        transform: scale(0.5) translate(80px, -20px);
+        transform-origin: top left;
     }
 }

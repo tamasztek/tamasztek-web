@@ -41,7 +41,8 @@ function MissionRenewd() {
         </div>
         <div className="home-renewd__mission-pillar home-renewd__mission-pillar--right">
           <img src={missionCommunity} alt="" />
-          <p>Közösség</p>
+          <p>Civil</p>
+          <p>közösség</p>
         </div>
 
         <p className="home-renewd__mission-title">Küldetésünk</p>

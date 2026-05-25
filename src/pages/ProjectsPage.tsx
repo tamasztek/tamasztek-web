@@ -3,6 +3,10 @@ import { fetchProjects } from "../services/projectService";
 import type { Project } from "../types/project";
 import Button from "../components/ui/Button";
 import { ChevronRightIcon } from "../components/ui/icons";
+import NavbarRenewd from "../components/layout/NavbarRenewd";
+import blobTeal from "../assets/renewd/projects/project_blob_1.svg";
+import blobOrange from "../assets/renewd/projects/project_blob_2.svg";
+import "../styles/renewd-tokens.css";
 import "./ProjectsPage.css";
 
 const ProjectsPage: React.FC = () => {
@@ -45,9 +49,23 @@ const ProjectsPage: React.FC = () => {
     });
 
   return (
-    <main className="projects-page">
-      <div className="projects-page__container">
-        <h1 className="projects-page__title">Projektjeink</h1>
+    <div className="projects-renewd">
+      <NavbarRenewd />
+      <main className="projects-page">
+        <div className="projects-page__blobs" aria-hidden="true">
+          <img
+            src={blobOrange}
+            alt=""
+            className="projects-page__blob projects-page__blob--orange"
+          />
+          <img
+            src={blobTeal}
+            alt=""
+            className="projects-page__blob projects-page__blob--teal"
+          />
+        </div>
+        <div className="projects-page__container">
+          <h1 className="projects-page__title">Projektjeink</h1>
 
         {loading && <p className="projects-page__status">Betöltés...</p>}
 
@@ -137,8 +155,9 @@ const ProjectsPage: React.FC = () => {
             </Button>
           </div>
         )}
-      </div>
-    </main>
+        </div>
+      </main>
+    </div>
   );
 };
 

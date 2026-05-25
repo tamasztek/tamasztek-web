@@ -4,7 +4,8 @@
 }
 
 .home-renewd__about .home-renewd__section-inner {
-    height: 540px;
+    min-height: 510px;
+    padding-bottom: 50px;
 }
 
 .home-renewd__about-profile {
@@ -67,13 +68,18 @@
 }
 
 .home-renewd__about-text {
-    position: absolute;
-    left: 397px;
-    top: 162px;
     width: 969px;
-    margin: 0;
+    margin: 162px 0 0 397px;
+}
+
+.home-renewd__about-paragraph {
+    margin: 0 0 16px;
     font-size: 16px;
     font-weight: 400;
     line-height: 1.6;
     color: #000;
+}
+
+.home-renewd__about-paragraph:last-child {
+    margin-bottom: 0;
 }

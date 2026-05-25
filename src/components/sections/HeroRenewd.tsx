@@ -5,6 +5,12 @@ import handshakeIcon from "../../assets/renewd/handshake-icon.png";
 import "./HeroRenewd.css";
 
 function HeroRenewd() {
+  const scrollToNews = () => {
+    document
+      .getElementById("news")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <section className="home-renewd__hero">
       <div className="home-renewd__section-inner">
@@ -42,11 +48,18 @@ function HeroRenewd() {
           </div>
         </div>
 
-        <p className="home-renewd__hero-handwrite">Tudj meg többet rólunk!</p>
+        <button
+          type="button"
+          className="home-renewd__hero-handwrite"
+          onClick={scrollToNews}
+        >
+          Nézd meg aktuális híreinket!
+        </button>
         <img
           src={heroHandwriteArrow}
           alt=""
           className="home-renewd__hero-handwrite-arrow"
+          onClick={scrollToNews}
         />
       </div>
     </section>

@@ -1,35 +1,70 @@
-/* ── Page ────────────────────────────────────────────────── */
-.gallery-page {
+.gallery-renewd {
     width: 100vw;
     margin-left: calc(50% - 50vw);
-    min-height: 100vh;
+    font-family: var(--rd-font-body);
+    color: var(--rd-text-dark);
+    text-align: left;
+}
+
+.gallery-renewd * {
+    box-sizing: border-box;
+}
+
+/* ── Page ────────────────────────────────────────────────── */
+.gallery-page {
     position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    min-height: 100vh;
     padding-top: 6rem;
     padding-bottom: 5rem;
+    background: var(--rd-bg-sand);
+    font-family: var(--rd-font-body);
 }
 
-.gallery-page::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-image: url("../assets/cloud_bg.png");
-    background-size: cover;
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-color: #f4faff;
-    z-index: -1;
+/* ── Decorative corner blobs ─────────────────────────────── */
+.gallery-page__blobs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    z-index: 0;
 }
 
+.gallery-page__blob {
+    position: absolute;
+    top: 0;
+    left: 0;
+    user-select: none;
+    pointer-events: none;
+}
+
+.gallery-page__blob--orange {
+    z-index: 1;
+    transform: translate(-80px, -20px);
+}
+
+.gallery-page__blob--teal {
+    z-index: 2;
+    transform: translate(-80px, -20px);
+}
+
+/* ── Container ───────────────────────────────────────────── */
 .gallery-page__container {
+    position: relative;
+    z-index: 1;
     max-width: 1600px;
     margin: 0 auto;
     padding: 0 1.5rem;
 }
 
 .gallery-page__title {
+    font-family: var(--rd-font-body);
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
-    color: var(--color-on-surface);
+    color: var(--rd-color-primary);
     letter-spacing: -0.02em;
     margin: 0 0 3rem;
     line-height: 1.1;
@@ -37,7 +72,7 @@
 
 .gallery-page__status {
     font-size: 1rem;
-    color: var(--color-on-surface-secondary);
+    color: var(--rd-text-muted);
     text-align: center;
     padding: 4rem 0;
 }
@@ -64,10 +99,10 @@
 .album-card {
     position: relative;
     aspect-ratio: 1 / 1;
-    border-radius: var(--radius-lg);
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 64, 128, 0.08);
-    background: var(--color-primary);
+    box-shadow: var(--rd-shadow-card);
+    background: var(--rd-color-primary);
 }
 
 .album-card__link {
@@ -103,7 +138,7 @@
 .album-card__placeholder {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, #dbeef8, #bdd9f0);
+    background: var(--rd-card-bg);
 }
 
 /* ── Card overlay ────────────────────────────────────────── */
@@ -125,10 +160,10 @@
     position: absolute;
     top: 1rem;
     right: 1rem;
-    background: rgba(0, 64, 128, 0.85);
-    color: #a9c7ff;
+    background: rgba(90, 21, 37, 0.85);
+    color: var(--rd-color-donate-text);
     padding: 0.2rem 0.5rem;
-    border-radius: var(--radius-sm);
+    border-radius: 999px;
     font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.06em;
@@ -137,6 +172,7 @@
 
 .album-card__name {
     color: #ffffff;
+    font-family: var(--rd-font-body);
     font-size: 1rem;
     font-weight: 700;
     margin: 0;
@@ -172,10 +208,15 @@
 
 .album-card-skeleton {
     aspect-ratio: 1 / 1;
-    border-radius: var(--radius-lg);
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 64, 128, 0.06);
-    background: linear-gradient(90deg, #e8f2f9 25%, #d0e8f5 50%, #e8f2f9 75%);
+    box-shadow: var(--rd-shadow-card);
+    background: linear-gradient(
+        90deg,
+        var(--rd-bg-cream) 25%,
+        var(--rd-card-bg) 50%,
+        var(--rd-bg-cream) 75%
+    );
     background-size: 200% 100%;
     animation: shimmer 1.4s ease-in-out infinite;
 }
@@ -194,5 +235,16 @@
     .gallery-page__grid {
         grid-template-columns: 1fr;
         gap: 1rem;
+    }
+
+    .gallery-page__blob {
+        transform: scale(0.5);
+        transform-origin: top left;
+    }
+
+    .gallery-page__blob--orange,
+    .gallery-page__blob--teal {
+        transform: scale(0.5) translate(-80px, -20px);
+        transform-origin: top left;
     }
 }

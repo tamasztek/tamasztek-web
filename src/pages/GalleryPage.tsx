@@ -5,6 +5,10 @@ import type { AlbumSummary } from "../types/album";
 import { getCoverUrl } from "../utils/cloudinaryUrl";
 import Button from "../components/ui/Button";
 import { ChevronRightIcon } from "../components/ui/icons";
+import NavbarRenewd from "../components/layout/NavbarRenewd";
+import blobTeal from "../assets/renewd/projects/project_blob_1.svg";
+import blobOrange from "../assets/renewd/projects/project_blob_2.svg";
+import "../styles/renewd-tokens.css";
 import "./GalleryPage.css";
 
 const GalleryPage: React.FC = () => {
@@ -39,9 +43,23 @@ const GalleryPage: React.FC = () => {
   };
 
   return (
-    <main className="gallery-page">
-      <div className="gallery-page__container">
-        <h1 className="gallery-page__title">Galéria</h1>
+    <div className="gallery-renewd">
+      <NavbarRenewd />
+      <main className="gallery-page">
+        <div className="gallery-page__blobs" aria-hidden="true">
+          <img
+            src={blobOrange}
+            alt=""
+            className="gallery-page__blob gallery-page__blob--orange"
+          />
+          <img
+            src={blobTeal}
+            alt=""
+            className="gallery-page__blob gallery-page__blob--teal"
+          />
+        </div>
+        <div className="gallery-page__container">
+          <h1 className="gallery-page__title">Galéria</h1>
 
         {error && (
           <p className="gallery-page__status gallery-page__status--error">
@@ -103,8 +121,9 @@ const GalleryPage: React.FC = () => {
             </Button>
           </div>
         )}
-      </div>
-    </main>
+        </div>
+      </main>
+    </div>
   );
 };
 

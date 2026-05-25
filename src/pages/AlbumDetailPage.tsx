@@ -4,6 +4,10 @@ import { fetchAlbum } from "../services/albumService";
 import type { AlbumDetail } from "../types/album";
 import { getGridUrl } from "../utils/cloudinaryUrl";
 import ImageSlider from "../components/ui/ImageSlider";
+import NavbarRenewd from "../components/layout/NavbarRenewd";
+import blobTeal from "../assets/renewd/projects/project_blob_1.svg";
+import blobOrange from "../assets/renewd/projects/project_blob_2.svg";
+import "../styles/renewd-tokens.css";
 import "./AlbumDetailPage.css";
 
 const AlbumDetailPage: React.FC = () => {
@@ -22,11 +26,25 @@ const AlbumDetailPage: React.FC = () => {
   }, [publicId]);
 
   return (
-    <main className="album-detail-page">
-      <div className="album-detail-page__container">
-        <Link to="/galeria" className="album-detail-page__back">
-          ← Vissza a galériához
-        </Link>
+    <div className="album-detail-renewd">
+      <NavbarRenewd />
+      <main className="album-detail-page">
+        <div className="album-detail-page__blobs" aria-hidden="true">
+          <img
+            src={blobOrange}
+            alt=""
+            className="album-detail-page__blob album-detail-page__blob--orange"
+          />
+          <img
+            src={blobTeal}
+            alt=""
+            className="album-detail-page__blob album-detail-page__blob--teal"
+          />
+        </div>
+        <div className="album-detail-page__container">
+          <Link to="/galeria" className="album-detail-page__back">
+            ← Vissza a galériához
+          </Link>
 
         {loading && (
           <p className="album-detail-page__status">Betöltés...</p>
@@ -69,16 +87,17 @@ const AlbumDetailPage: React.FC = () => {
             )}
           </>
         )}
-      </div>
+        </div>
 
-      {sliderIndex !== null && album && (
-        <ImageSlider
-          images={album.images}
-          initialIndex={sliderIndex}
-          onClose={() => setSliderIndex(null)}
-        />
-      )}
-    </main>
+        {sliderIndex !== null && album && (
+          <ImageSlider
+            images={album.images}
+            initialIndex={sliderIndex}
+            onClose={() => setSliderIndex(null)}
+          />
+        )}
+      </main>
+    </div>
   );
 };
 

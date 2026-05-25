@@ -66,9 +66,13 @@
 
 .home-renewd__hero-handwrite {
     position: absolute;
-    left: 77px;
+    left: 27px;
     top: 545px;
     margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    text-align: left;
     width: 333.607px;
     font-family: var(--rd-font-handwrite);
     font-size: 42px;
@@ -78,6 +82,7 @@
     white-space: nowrap;
     transform: rotate(2.5deg);
     transform-origin: left center;
+    cursor: pointer;
 }
 
 .home-renewd__hero-handwrite-arrow {
@@ -86,5 +91,5 @@
     top: 615px;
     width: 291.638px;
     height: 108.48px;
-    pointer-events: none;
+    cursor: pointer;
 }

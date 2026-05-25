@@ -1,18 +1,60 @@
-/* ── Page ────────────────────────────────────────────────── */
-.album-detail-page {
+.album-detail-renewd {
     width: 100vw;
     margin-left: calc(50% - 50vw);
-    min-height: 100vh;
-    background-image: url('../assets/cloud_bg.png');
-    background-size: cover;
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-color: #f4faff;
-    padding-top: 6rem;
-    padding-bottom: 5rem;
+    font-family: var(--rd-font-body);
+    color: var(--rd-text-dark);
+    text-align: left;
 }
 
+.album-detail-renewd * {
+    box-sizing: border-box;
+}
+
+/* ── Page ────────────────────────────────────────────────── */
+.album-detail-page {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    min-height: 100vh;
+    padding-top: 6rem;
+    padding-bottom: 5rem;
+    background: var(--rd-bg-sand);
+    font-family: var(--rd-font-body);
+}
+
+/* ── Decorative corner blobs ─────────────────────────────── */
+.album-detail-page__blobs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.album-detail-page__blob {
+    position: absolute;
+    top: 0;
+    left: 0;
+    user-select: none;
+    pointer-events: none;
+}
+
+.album-detail-page__blob--orange {
+    z-index: 1;
+    transform: translate(-80px, -20px);
+}
+
+.album-detail-page__blob--teal {
+    z-index: 2;
+    transform: translate(-80px, -20px);
+}
+
+/* ── Container ───────────────────────────────────────────── */
 .album-detail-page__container {
+    position: relative;
+    z-index: 1;
     max-width: 1600px;
     margin: 0 auto;
     padding: 0 1.5rem;
@@ -23,21 +65,22 @@
     display: inline-block;
     font-size: 0.9rem;
     font-weight: 600;
-    color: var(--color-primary);
+    color: var(--rd-color-primary);
     text-decoration: none;
     margin-bottom: 1.5rem;
-    transition: color 0.2s;
+    transition: opacity 0.2s;
 }
 
 .album-detail-page__back:hover {
-    color: var(--color-primary-container);
+    opacity: 0.75;
 }
 
 /* ── Title ───────────────────────────────────────────────── */
 .album-detail-page__title {
+    font-family: var(--rd-font-body);
     font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
-    color: var(--color-on-surface);
+    color: var(--rd-color-primary);
     letter-spacing: -0.02em;
     margin: 0 0 2.5rem;
     line-height: 1.1;
@@ -46,7 +89,7 @@
 /* ── Status ──────────────────────────────────────────────── */
 .album-detail-page__status {
     font-size: 1rem;
-    color: var(--color-on-surface-secondary);
+    color: var(--rd-text-muted);
     text-align: center;
     padding: 4rem 0;
 }
@@ -69,7 +112,7 @@
     padding: 0;
     margin: 0;
     cursor: pointer;
-    border-radius: var(--radius-sm);
+    border-radius: 12px;
     overflow: hidden;
     display: block;
     aspect-ratio: 1 / 1;
@@ -78,11 +121,11 @@
 
 .album-detail-page__thumb-btn:hover {
     transform: scale(1.02);
-    box-shadow: 0 4px 16px rgba(0, 97, 156, 0.18);
+    box-shadow: var(--rd-shadow-card);
 }
 
 .album-detail-page__thumb-btn:focus-visible {
-    outline: 2px solid var(--color-primary);
+    outline: 2px solid var(--rd-color-primary);
     outline-offset: 2px;
 }
 
@@ -108,5 +151,16 @@
     .album-detail-page__grid {
         grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
         gap: 0.5rem;
+    }
+
+    .album-detail-page__blob {
+        transform: scale(0.5);
+        transform-origin: top left;
+    }
+
+    .album-detail-page__blob--orange,
+    .album-detail-page__blob--teal {
+        transform: scale(0.5) translate(-80px, -20px);
+        transform-origin: top left;
     }
 }
