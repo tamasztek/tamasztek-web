@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import NavbarRenewd from "../components/layout/NavbarRenewd";
 import HeroRenewd from "../components/sections/HeroRenewd";
 import AboutRenewd from "../components/sections/AboutRenewd";
@@ -15,6 +16,7 @@ function HomePageRenewd() {
   const [news, setNews] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const location = useLocation();
 
   useEffect(() => {
     fetchFeaturedNews()
@@ -22,6 +24,15 @@ function HomePageRenewd() {
       .catch(() => setError("Jelenleg nincsenek kiemelt híreink."))
       .finally(() => setLoading(false));
   }, []);
+
+  useEffect(() => {
+    const scrollTo = (location.state as { scrollTo?: string } | null)?.scrollTo;
+    if (!scrollTo) return;
+    requestAnimationFrame(() => {
+      document.getElementById(scrollTo)?.scrollIntoView({ behavior: "smooth" });
+    });
+    window.history.replaceState({}, "");
+  }, [location.state]);
 
   return (
     <div className="home-renewd">

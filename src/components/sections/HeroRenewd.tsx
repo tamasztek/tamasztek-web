@@ -1,11 +1,16 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import heroVillage from "../../assets/renewd/hero_image.png";
 import heroVillageMobile from "../../assets/renewd/hero_image_mobile.png";
-import heroHandwriteArrow from "../../assets/renewd/arrow_downward.svg";
+import heroHandwriteArrow from "../../assets/renewd/arrow-downward_2.svg";
 import arrowIcon from "../../assets/renewd/arrow-icon.svg";
 import handshakeIcon from "../../assets/renewd/handshake-icon.png";
+import JoinModal from "../ui/JoinModal";
 import "./HeroRenewd.css";
 
 function HeroRenewd() {
+  const [joinOpen, setJoinOpen] = useState(false);
+
   const scrollToNews = () => {
     document
       .getElementById("news")
@@ -34,17 +39,21 @@ function HeroRenewd() {
           </div>
 
           <div className="home-renewd__hero-actions">
-            <a href="#donate" className="hr-btn hr-btn--donate hr-btn--lg">
+            <Link to="/adomanyozas" className="hr-btn hr-btn--donate hr-btn--lg">
               <span>Adományozok</span>
               <img src={arrowIcon} alt="" className="hr-btn__arrow" />
-            </a>
-            <a href="#join" className="hr-btn hr-btn--join hr-btn--lg">
+            </Link>
+            <button
+              type="button"
+              className="hr-btn hr-btn--join hr-btn--lg"
+              onClick={() => setJoinOpen(true)}
+            >
               <span className="hr-btn__inner">
                 <img src={handshakeIcon} alt="" className="hr-btn__icon" />
                 <span>Csatlakozom</span>
               </span>
               <img src={arrowIcon} alt="" className="hr-btn__arrow" />
-            </a>
+            </button>
           </div>
         </div>
 
@@ -62,6 +71,8 @@ function HeroRenewd() {
           onClick={scrollToNews}
         />
       </div>
+
+      <JoinModal open={joinOpen} onClose={() => setJoinOpen(false)} />
     </section>
   );
 }

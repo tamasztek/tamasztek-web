@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import missionCircle from "../../assets/renewd/mission-circle.png";
 import missionArrowText from "../../assets/renewd/mission-arrow-text.svg";
 import missionChurch from "../../assets/renewd/mission-church.png";
@@ -12,10 +13,10 @@ import "./MissionRenewd.css";
 
 function DonateButton({ size = "lg" }: { size?: "lg" | "sm" }) {
   return (
-    <a href="#donate" className={`hr-btn hr-btn--donate hr-btn--${size}`}>
+    <Link to="/adomanyozas" className={`hr-btn hr-btn--donate hr-btn--${size}`}>
       <span>Adományozok</span>
       <img src={arrowIcon} alt="" className="hr-btn__arrow" />
-    </a>
+    </Link>
   );
 }
 

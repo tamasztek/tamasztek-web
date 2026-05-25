@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import logo from "../../assets/renewd/logo.png";
 import arrowIcon from "../../assets/renewd/arrow-icon.svg";
 import facebookLogo from "../../assets/renewd/facebook_logo.png";
@@ -13,6 +14,22 @@ const menuItems = [
 
 function NavbarRenewd() {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleHashClick = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    hash: string,
+  ) => {
+    event.preventDefault();
+    setOpen(false);
+    const id = hash.slice(1);
+    if (location.pathname === "/") {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/", { state: { scrollTo: id } });
+    }
+  };
 
   return (
     <header className={`navbar-renewd${open ? " navbar-renewd--open" : ""}`}>
@@ -21,16 +38,27 @@ function NavbarRenewd() {
           <img src={logo} alt="Támaszték logo" />
         </a>
         <nav className="navbar-renewd__menu">
-          {menuItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              className="navbar-renewd__link"
-              onClick={() => setOpen(false)}
-            >
-              {item.label}
-            </a>
-          ))}
+          {menuItems.map((item) =>
+            item.href.startsWith("#") ? (
+              <a
+                key={item.label}
+                href={item.href}
+                className="navbar-renewd__link"
+                onClick={(event) => handleHashClick(event, item.href)}
+              >
+                {item.label}
+              </a>
+            ) : (
+              <Link
+                key={item.label}
+                to={item.href}
+                className="navbar-renewd__link"
+                onClick={() => setOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ),
+          )}
         </nav>
         <div className="navbar-renewd__actions">
           <a
@@ -42,10 +70,10 @@ function NavbarRenewd() {
           >
             <img src={facebookLogo} alt="" />
           </a>
-          <a href="#donate" className="navbar-renewd__cta">
+          <Link to="/adomanyozas" className="navbar-renewd__cta">
             <span>Adományozok</span>
             <img src={arrowIcon} alt="" className="navbar-renewd__cta-arrow" />
-          </a>
+          </Link>
           <button
             type="button"
             className="navbar-renewd__toggle"
