@@ -4,7 +4,8 @@ RUN npm install -g pnpm
 COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile
 COPY . .
-RUN pnpm build
+ARG VITE_MODE=production
+RUN pnpm exec tsc -b && pnpm exec vite build --mode "$VITE_MODE"
 
 FROM nginx:alpine
 RUN apk add --no-cache apache2-utils

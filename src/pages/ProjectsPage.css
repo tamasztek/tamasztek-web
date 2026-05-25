@@ -224,8 +224,9 @@
         transform-origin: top left;
     }
 
-    .projects-page__blob--orange {
-        transform: scale(0.5) translate(80px, -20px);
+    .projects-page__blob--orange,
+    .projects-page__blob--teal {
+        transform: scale(0.5) translate(-80px, -20px);
         transform-origin: top left;
     }
 }

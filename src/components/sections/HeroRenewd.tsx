@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import heroVillage from "../../assets/renewd/hero_image.png";
-import heroVillageMobile from "../../assets/renewd/hero_image_mobile.png";
+import heroVillage from "../../assets/renewd/hero_image.webp";
+import heroVillageMobile from "../../assets/renewd/hero_image_mobile.webp";
 import heroHandwriteArrow from "../../assets/renewd/arrow-downward_2.svg";
 import arrowIcon from "../../assets/renewd/arrow-icon.svg";
 import handshakeIcon from "../../assets/renewd/handshake-icon.png";

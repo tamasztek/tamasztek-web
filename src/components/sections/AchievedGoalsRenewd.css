@@ -252,11 +252,29 @@
         border-radius: 50%;
         background: rgba(90, 21, 37, 0.25);
         cursor: pointer;
-        transition: background 0.2s, transform 0.2s;
+        transition:
+            background 0.2s,
+            transform 0.2s;
     }
 
     .home-renewd__goals-dot.is-active {
         background: var(--rd-color-primary);
         transform: scale(1.25);
+    }
+
+    .home-renewd__goal-card--reaches {
+        box-shadow: none;
+    }
+
+    .home-renewd__goal-card--program {
+        box-shadow: none;
+    }
+
+    .home-renewd__goal-card--onkentes {
+        box-shadow: none;
+    }
+
+    .home-renewd__goal-card-- {
+        box-shadow: none;
     }
 }
