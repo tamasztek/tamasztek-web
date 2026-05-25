@@ -68,6 +68,10 @@ body {
   background-color: #b8d8f0;
 }
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 h1,
 h2 {
   font-family: var(--heading);
