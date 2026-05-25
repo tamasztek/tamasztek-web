@@ -76,3 +76,32 @@
     height: 9px;
     transform: rotate(90deg);
 }
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 768px) {
+    .home-renewd {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .home-renewd__section-inner {
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .hr-btn--lg {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        height: auto;
+        min-height: 52px;
+        padding: 14px 24px;
+        font-size: 16px;
+    }
+
+    .hr-btn--join.hr-btn--lg {
+        padding-left: 24px;
+    }
+}

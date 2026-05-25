@@ -3,3 +3,9 @@
     height: 182px;
     background: var(--rd-bg-cream);
 }
+
+@media (max-width: 768px) {
+    .home-renewd__footer {
+        height: 120px;
+    }
+}

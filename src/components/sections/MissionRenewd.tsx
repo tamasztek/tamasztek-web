@@ -21,31 +21,33 @@ function MissionRenewd() {
   return (
     <section className="home-renewd__mission" id="mission">
       <div className="home-renewd__section-inner">
-        <img
-          src={missionCircle}
-          alt=""
-          className="home-renewd__mission-circle"
-        />
+        <div className="home-renewd__mission-wheel">
+          <img
+            src={missionCircle}
+            alt=""
+            className="home-renewd__mission-circle"
+          />
 
-        <div className="home-renewd__mission-pillar home-renewd__mission-pillar--top">
-          <img src={missionChurch} alt="" />
-          <p>Hit</p>
-        </div>
-        <div className="home-renewd__mission-pillar home-renewd__mission-pillar--left">
-          <img src={missionFamily} alt="" />
-          <p>Család</p>
-        </div>
-        <div className="home-renewd__mission-pillar home-renewd__mission-pillar--bottom">
-          <img src={missionTree} alt="" />
-          <p>Teremtésvédelem</p>
-        </div>
-        <div className="home-renewd__mission-pillar home-renewd__mission-pillar--right">
-          <img src={missionCommunity} alt="" />
-          <p>Civil</p>
-          <p>közösség</p>
-        </div>
+          <p className="home-renewd__mission-title">Küldetésünk</p>
 
-        <p className="home-renewd__mission-title">Küldetésünk</p>
+          <div className="home-renewd__mission-pillar home-renewd__mission-pillar--top">
+            <img src={missionChurch} alt="" />
+            <p>Hit</p>
+          </div>
+          <div className="home-renewd__mission-pillar home-renewd__mission-pillar--left">
+            <img src={missionFamily} alt="" />
+            <p>Család</p>
+          </div>
+          <div className="home-renewd__mission-pillar home-renewd__mission-pillar--bottom">
+            <img src={missionTree} alt="" />
+            <p>Teremtésvédelem</p>
+          </div>
+          <div className="home-renewd__mission-pillar home-renewd__mission-pillar--right">
+            <img src={missionCommunity} alt="" />
+            <p>Civil</p>
+            <p>közösség</p>
+          </div>
+        </div>
 
         <img
           src={missionArrowText}

@@ -1,4 +1,5 @@
 import heroVillage from "../../assets/renewd/hero_image.png";
+import heroVillageMobile from "../../assets/renewd/hero_image_mobile.png";
 import heroHandwriteArrow from "../../assets/renewd/arrow_downward.svg";
 import arrowIcon from "../../assets/renewd/arrow-icon.svg";
 import handshakeIcon from "../../assets/renewd/handshake-icon.png";
@@ -14,11 +15,10 @@ function HeroRenewd() {
   return (
     <section className="home-renewd__hero">
       <div className="home-renewd__section-inner">
-        <img
-          src={heroVillage}
-          alt="Támaszték falu illusztráció"
-          className="home-renewd__hero-illu"
-        />
+        <picture className="home-renewd__hero-illu">
+          <source media="(max-width: 768px)" srcSet={heroVillageMobile} />
+          <img src={heroVillage} alt="Támaszték falu illusztráció" />
+        </picture>
 
         <div className="home-renewd__hero-content">
           <div className="home-renewd__hero-text">
