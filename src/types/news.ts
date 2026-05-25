@@ -8,5 +8,18 @@ export interface NewsItem {
   title: string;
   content: string;
   date: string | null;
-  image: NewsImage;
+  image: NewsImage | null;
+}
+
+export interface NewsWebDto {
+  id: string;
+  title: string;
+  description: string;
+  publishedDate: string;
+  featured: boolean;
+  coverImage: NewsImage | null;
+}
+
+export interface HomeWebResponse {
+  featuredNews: NewsWebDto[];
 }
