@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { fetchAlbums } from "../services/albumService";
 import type { AlbumSummary } from "../types/album";
 import { getCoverUrl } from "../utils/cloudinaryUrl";
-import Button from "../components/ui/Button";
-import { ChevronRightIcon } from "../components/ui/icons";
 import NavbarRenewd from "../components/layout/NavbarRenewd";
 import blobTeal from "../assets/renewd/projects/project_blob_1.svg";
 import blobOrange from "../assets/renewd/projects/project_blob_2.svg";
@@ -111,14 +109,13 @@ const GalleryPage: React.FC = () => {
 
         {hasMore && (
           <div className="gallery-page__load-more">
-            <Button variant="ghost" onClick={loadMore}>
+            <button
+              type="button"
+              className="gallery-page__load-more-btn"
+              onClick={loadMore}
+            >
               {loadingMore ? "Betöltés..." : "Megnézem a további albumokat"}
-              {!loadingMore && (
-                <span className="btn__chevron">
-                  <ChevronRightIcon />
-                </span>
-              )}
-            </Button>
+            </button>
           </div>
         )}
         </div>

@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchProjects } from "../services/projectService";
 import type { Project } from "../types/project";
-import Button from "../components/ui/Button";
-import { ChevronRightIcon } from "../components/ui/icons";
 import NavbarRenewd from "../components/layout/NavbarRenewd";
 import blobTeal from "../assets/renewd/projects/project_blob_1.svg";
 import blobOrange from "../assets/renewd/projects/project_blob_2.svg";
@@ -145,14 +143,13 @@ const ProjectsPage: React.FC = () => {
 
         {hasMore && (
           <div className="projects-page__load-more">
-            <Button variant="ghost" onClick={loadMore}>
+            <button
+              type="button"
+              className="projects-page__load-more-btn"
+              onClick={loadMore}
+            >
               {loadingMore ? "Betöltés..." : "Megnézem a további projekteket"}
-              {!loadingMore && (
-                <span className="btn__chevron">
-                  <ChevronRightIcon />
-                </span>
-              )}
-            </Button>
+            </button>
           </div>
         )}
         </div>
