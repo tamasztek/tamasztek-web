@@ -198,6 +198,7 @@
         height: auto !important;
         background: var(--rd-card-bg);
         scroll-snap-align: center;
+        scroll-snap-stop: always;
     }
 
     .home-renewd__goal-photo {
