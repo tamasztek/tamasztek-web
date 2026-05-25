@@ -2,11 +2,17 @@ import heroBg from "../assets/hero_3.png";
 import mobileHeroBg from "../assets/cropped_mobile.png";
 import mobileHeroBgWebp from "../assets/cropped_mobile.webp";
 import logo from "../assets/logo.png";
+import Seo from "../components/Seo";
 import "./ComingSoonPage.css";
 
 const ComingSoonPage: React.FC = () => {
   return (
     <div className="coming-soon-page">
+      <Seo
+        title="Hamarosan"
+        description="Dolgozunk a Támaszték Egyesület oldalán — nemsokára minden elérhető lesz."
+        path="/"
+      />
       <div className="coming-soon-bg">
         <picture>
           <source

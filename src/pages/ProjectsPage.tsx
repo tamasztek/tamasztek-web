@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { fetchProjects } from "../services/projectService";
 import type { Project } from "../types/project";
 import NavbarRenewd from "../components/layout/NavbarRenewd";
+import Seo from "../components/Seo";
 import blobTeal from "../assets/renewd/projects/project_blob_1.svg";
 import blobOrange from "../assets/renewd/projects/project_blob_2.svg";
 import "../styles/renewd-tokens.css";
@@ -48,6 +49,11 @@ const ProjectsPage: React.FC = () => {
 
   return (
     <div className="projects-renewd">
+      <Seo
+        title="Projektjeink"
+        description="Ismerje meg a Támaszték Egyesület projektjeit: közösségi programok, táborok és önkéntes kezdeményezések az emberekért és a teremtett világért."
+        path="/projektek"
+      />
       <NavbarRenewd />
       <main className="projects-page">
         <div className="projects-page__blobs" aria-hidden="true">

@@ -7,6 +7,7 @@ import MissionRenewd from "../components/sections/MissionRenewd";
 import AchievedGoalsRenewd from "../components/sections/AchievedGoalsRenewd";
 import NewsRenewd from "../components/sections/NewsRenewd";
 import FooterRenewd from "../components/sections/FooterRenewd";
+import Seo from "../components/Seo";
 import { fetchFeaturedNews } from "../services/newsService";
 import type { NewsItem } from "../types/news";
 import "../styles/renewd-tokens.css";
@@ -36,12 +37,15 @@ function HomePageRenewd() {
 
   return (
     <div className="home-renewd">
+      <Seo path="/" />
       <NavbarRenewd />
-      <HeroRenewd />
-      <AboutRenewd />
-      <MissionRenewd />
-      <AchievedGoalsRenewd />
-      <NewsRenewd news={news} loading={loading} error={error} />
+      <main>
+        <HeroRenewd />
+        <AboutRenewd />
+        <MissionRenewd />
+        <AchievedGoalsRenewd />
+        <NewsRenewd news={news} loading={loading} error={error} />
+      </main>
       <FooterRenewd />
     </div>
   );

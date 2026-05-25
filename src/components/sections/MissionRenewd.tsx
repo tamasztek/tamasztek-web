@@ -31,7 +31,7 @@ function MissionRenewd() {
             className="home-renewd__mission-circle"
           />
 
-          <p className="home-renewd__mission-title">Küldetésünk</p>
+          <h2 className="home-renewd__mission-title">Küldetésünk</h2>
 
           <div className="home-renewd__mission-pillar home-renewd__mission-pillar--top">
             <img src={missionChurch} alt="" />

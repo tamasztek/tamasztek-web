@@ -38,6 +38,7 @@
 .notfound-page__lead {
   margin: 16px 0 16px;
   font-family: var(--rd-font-handwrite);
+  font-weight: 400;
   font-size: 40px;
   color: var(--rd-color-primary);
 }

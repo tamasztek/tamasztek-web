@@ -4,6 +4,7 @@ import { fetchAlbums } from "../services/albumService";
 import type { AlbumSummary } from "../types/album";
 import { getCoverUrl } from "../utils/cloudinaryUrl";
 import NavbarRenewd from "../components/layout/NavbarRenewd";
+import Seo from "../components/Seo";
 import blobTeal from "../assets/renewd/projects/project_blob_1.svg";
 import blobOrange from "../assets/renewd/projects/project_blob_2.svg";
 import "../styles/renewd-tokens.css";
@@ -42,6 +43,11 @@ const GalleryPage: React.FC = () => {
 
   return (
     <div className="gallery-renewd">
+      <Seo
+        title="Galéria"
+        description="Képek a Támaszték Egyesület eseményeiről, programjairól és közösségi pillanatairól."
+        path="/galeria"
+      />
       <NavbarRenewd />
       <main className="gallery-page">
         <div className="gallery-page__blobs" aria-hidden="true">

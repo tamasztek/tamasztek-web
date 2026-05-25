@@ -5,6 +5,7 @@ import type { AlbumDetail } from "../types/album";
 import { getGridUrl } from "../utils/cloudinaryUrl";
 import ImageSlider from "../components/ui/ImageSlider";
 import NavbarRenewd from "../components/layout/NavbarRenewd";
+import Seo from "../components/Seo";
 import blobTeal from "../assets/renewd/projects/project_blob_1.svg";
 import blobOrange from "../assets/renewd/projects/project_blob_2.svg";
 import "../styles/renewd-tokens.css";
@@ -27,6 +28,17 @@ const AlbumDetailPage: React.FC = () => {
 
   return (
     <div className="album-detail-renewd">
+      <Seo
+        title={album?.name ?? "Galéria"}
+        description={
+          album
+            ? `${album.name} – képek a Támaszték Egyesület galériájából.`
+            : "Képek a Támaszték Egyesület eseményeiről és közösségi pillanatairól."
+        }
+        path={`/galeria/${publicId ?? ""}`}
+        type="article"
+        image={album?.coverImage?.url ?? album?.images[0]?.url}
+      />
       <NavbarRenewd />
       <main className="album-detail-page">
         <div className="album-detail-page__blobs" aria-hidden="true">

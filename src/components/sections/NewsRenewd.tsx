@@ -32,7 +32,7 @@ function NewsRenewd({ news, loading, error }: NewsRenewdProps) {
                     <div className="home-renewd__news-image-slot">
                       <img
                         src={item.image.url}
-                        alt={item.image.altText ?? ""}
+                        alt={item.image.altText ?? item.title}
                         className="home-renewd__news-image"
                       />
                     </div>

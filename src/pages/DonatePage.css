@@ -26,6 +26,14 @@
   text-align: center;
 }
 
+.donate-page__title {
+  margin: 0 0 32px;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--rd-color-primary);
+}
+
 .donate-page__lead {
   margin: 0 0 24px;
   font-size: 32px;
@@ -72,6 +80,11 @@
 
   .donate-page__main {
     padding: 48px 20px;
+  }
+
+  .donate-page__title {
+    font-size: 30px;
+    margin-bottom: 24px;
   }
 
   .donate-page__lead {
