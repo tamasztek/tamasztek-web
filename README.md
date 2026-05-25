@@ -43,6 +43,25 @@ export default defineConfig([
 ])
 ```
 
+## Docker image runtime env változók (Basic Auth)
+
+A Docker image nginx-szel szolgálja ki a `dist/` mappát. Indításkor opcionálisan
+HTTP Basic Auth (böngésző 401 popup) kapcsolható be — addig használjuk, amíg az
+oldal nem publikus. Ezek **runtime** env változók (a docker-compose-ban, NEM `VITE_`
+build-time változók), és a konténer indulásakor olvasódnak be:
+
+| Változó               | Leírás                                                        |
+|-----------------------|---------------------------------------------------------------|
+| `BASIC_AUTH_ENABLED`  | `true` → Basic Auth bekapcsol. Bármi más / hiányzik → kikapcs. |
+| `BASIC_AUTH_USER`     | Felhasználónév (csak ha `ENABLED=true`).                       |
+| `BASIC_AUTH_PASSWORD` | Jelszó (csak ha `ENABLED=true`).                               |
+
+Ha `BASIC_AUTH_ENABLED=true`, de user/jelszó hiányzik, a konténer hibával leáll.
+A `.htpasswd` induláskor generálódik az env értékekből — titok soha nincs a repóban.
+Kikapcsoláshoz: `BASIC_AUTH_ENABLED=false` (vagy a változó elhagyása), majd redeploy.
+
+## Expanding the ESLint configuration (default Vite template)
+
 You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
 ```js
