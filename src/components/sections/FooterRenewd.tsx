@@ -49,11 +49,13 @@ function FooterRenewd() {
       <div className="home-renewd__footer-inner">
         <div className="home-renewd__footer-contact">
           <a href={`mailto:${EMAIL}`} className="home-renewd__footer-email">
-            {EMAIL}
+            Email: <span className="home-renewd__footer-email-address">{EMAIL}</span>
           </a>
-          {/* TODO: cseréld a tényleges székhelyre, ha megvan */}
           <p className="home-renewd__footer-address">
-            Székhely: 0000 Település, Utca 0.
+            Adószám: 19290285105
+          </p>
+          <p className="home-renewd__footer-address">
+            Bankszámlaszám: 11734169-25862212
           </p>
         </div>
 
