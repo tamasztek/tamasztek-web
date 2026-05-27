@@ -1,0 +1,76 @@
+name: Build & Push
+
+# Csak build + push GHCR-re. A VM-deployt az orchestrator végzi SSH-n
+# (prodnál pre-deploy snapshot + ellenőrzés a deploy skill szerint).
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_env:
+        description: 'Környezet'
+        type: choice
+        options: [dev, uat, prod]
+        required: true
+      version:
+        description: 'Verziótag (prodnál KÖTELEZŐ, pl. 0.1.4; dev/uat-on opcionális)'
+        required: false
+        default: ''
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: tamasztek/tamasztek-web
+
+jobs:
+  build-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Determine build params (VITE_MODE + floating tag)
+        id: p
+        run: |
+          case "${{ github.event.inputs.target_env }}" in
+            dev)  echo "vite_mode=development" >> "$GITHUB_OUTPUT"; echo "float=latest" >> "$GITHUB_OUTPUT" ;;
+            uat)  echo "vite_mode=uat"         >> "$GITHUB_OUTPUT"; echo "float=uat"    >> "$GITHUB_OUTPUT" ;;
+            prod) echo "vite_mode=prod"        >> "$GITHUB_OUTPUT"; echo "float=prod"   >> "$GITHUB_OUTPUT"
+                  if [ -z "${{ github.event.inputs.version }}" ]; then
+                    echo "::error::prod buildhez kötelező a 'version' input"; exit 1
+                  fi ;;
+          esac
+
+      - name: Build tag list
+        id: tags
+        run: |
+          TAGS="${REGISTRY}/${IMAGE_NAME}:${{ steps.p.outputs.float }}"
+          if [ -n "${{ github.event.inputs.version }}" ]; then
+            TAGS="${TAGS}"$'\n'"${REGISTRY}/${IMAGE_NAME}:${{ github.event.inputs.version }}"
+          fi
+          { echo "list<<EOF"; echo "$TAGS"; echo "EOF"; } >> "$GITHUB_OUTPUT"
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.CR_PAT }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          platforms: linux/amd64
+          provenance: false
+          build-args: |
+            VITE_MODE=${{ steps.p.outputs.vite_mode }}
+          tags: ${{ steps.tags.outputs.list }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
