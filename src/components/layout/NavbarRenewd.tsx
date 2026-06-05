@@ -8,6 +8,7 @@ import "./NavbarRenewd.css";
 const menuItems = [
   { label: "Kik vagyunk mi?", href: "#about" },
   { label: "Hírek", href: "#news" },
+  { label: "Kapcsolat", href: "#kapcsolat" },
   { label: "Projektek", href: "/projektek" },
   { label: "Galéria", href: "/galeria" },
 ];

@@ -1,24 +1,25 @@
 :root {
-  --rd-color-primary: #5a1525;
-  --rd-color-donate: #feb548;
-  --rd-color-donate-text: #fdf6e8;
-  --rd-color-join: #00a8bb;
-  --rd-color-border: #dbdbdf;
+    --rd-color-primary: #5a1525;
+    --rd-color-donate: #feb548;
+    --rd-color-donate-text: #fdf6e8;
+    --rd-color-join: #00a8bb;
+    --rd-color-border: #dbdbdf;
+    --rd-color-error: #d92020;
 
-  --rd-bg-cream: #fdf6e8;
-  --rd-bg-sand: #f9e8c4;
-  --rd-bg-page: #fdf7f0;
-  --rd-card-bg: #f8f7f7;
+    --rd-bg-cream: #fdf4e3;
+    --rd-bg-sand: #f9e8c4;
+    --rd-bg-page: #fdf7f0;
+    --rd-card-bg: #f8f7f7;
 
-  --rd-text-dark: #120407;
-  --rd-text-body: #000000;
-  --rd-text-muted: #62636a;
+    --rd-text-dark: #120407;
+    --rd-text-body: #000000;
+    --rd-text-muted: #62636a;
 
-  --rd-font-body: "Montserrat", sans-serif;
-  --rd-font-handwrite: "Yellowtail", cursive;
-  --rd-font-number: "Manrope", sans-serif;
+    --rd-font-body: "Montserrat", sans-serif;
+    --rd-font-handwrite: "Yellowtail", cursive;
+    --rd-font-number: "Manrope", sans-serif;
 
-  --rd-shadow-card: 4px 8px 20px 0 rgba(0, 0, 0, 0.05);
+    --rd-shadow-card: 4px 8px 20px 0 rgba(0, 0, 0, 0.05);
 
-  --rd-page-width: 1440px;
+    --rd-page-width: 1440px;
 }
