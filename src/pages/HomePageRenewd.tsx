@@ -6,6 +6,7 @@ import AboutRenewd from "../components/sections/AboutRenewd";
 import MissionRenewd from "../components/sections/MissionRenewd";
 import AchievedGoalsRenewd from "../components/sections/AchievedGoalsRenewd";
 import NewsRenewd from "../components/sections/NewsRenewd";
+import ContactRenewd from "../components/sections/ContactRenewd";
 import FooterRenewd from "../components/sections/FooterRenewd";
 import Seo from "../components/Seo";
 import { fetchFeaturedNews } from "../services/newsService";
@@ -45,6 +46,7 @@ function HomePageRenewd() {
         <MissionRenewd />
         <AchievedGoalsRenewd />
         <NewsRenewd news={news} loading={loading} error={error} />
+        <ContactRenewd />
       </main>
       <FooterRenewd />
     </div>
