@@ -40,8 +40,10 @@
   --cc-link-color: var(--rd-color-primary);
 }
 
-/* A banner/modal árnyéka illeszkedjen a kártyastílushoz */
+/* A banner/modal különüljön el a hasonló színű oldalháttértől:
+ * diszkrét keret + a kártyánál erősebb árnyék. */
 #cc-main .cm,
 #cc-main .pm {
-  box-shadow: var(--rd-shadow-card);
+  border: 1.5px solid rgba(90, 21, 37, 0.18); /* --rd-color-primary halványan */
+  box-shadow: 0 10px 30px rgba(18, 4, 7, 0.18);
 }
