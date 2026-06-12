@@ -92,6 +92,26 @@
     object-fit: contain;
 }
 
+.home-renewd__footer-legal {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.home-renewd__footer-cookie-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: inherit;
+}
+
 .home-renewd__footer-copyright {
     position: absolute;
     left: 0;
