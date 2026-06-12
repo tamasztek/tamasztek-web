@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 import NavbarRenewd from "../components/layout/NavbarRenewd";
 import Seo from "../components/Seo";
+import { useDonationModal } from "../components/ui/donationModalContext";
+import arrowIcon from "../assets/renewd/arrow-icon.svg";
 import "../styles/renewd-tokens.css";
 import "./DonatePage.css";
 
 const CONTACT_EMAIL = "tamasztekegyesulet@gmail.com";
 
 function DonatePage() {
+  const { openDonationModal } = useDonationModal();
   return (
     <div className="donate-page">
       <Seo
@@ -22,12 +25,20 @@ function DonatePage() {
             Köszönjük, hogy támogatni szeretné egyesületünket.
           </p>
           <p className="donate-page__text">
-            Az oldal még nem tartalmaz fizetési funkciót, de hamarosan az is
-            megvalósul!
+            Adományával hozzájárul ahhoz, hogy még több közösség és program
+            születhessen. A fizetés a Barion biztonságos felületén keresztül
+            történik.
           </p>
-          <p className="donate-page__text">
-            Kérjük, addig is vegye fel velünk a kapcsolatot az alábbi e-mail
-            címen:
+          <button
+            type="button"
+            className="donate-page__cta"
+            onClick={openDonationModal}
+          >
+            <span>Adományozok</span>
+            <img src={arrowIcon} alt="" className="donate-page__cta-arrow" />
+          </button>
+          <p className="donate-page__text donate-page__text--small">
+            Kérdése van? Vegye fel velünk a kapcsolatot:
           </p>
           <a className="donate-page__email" href={`mailto:${CONTACT_EMAIL}`}>
             {CONTACT_EMAIL}

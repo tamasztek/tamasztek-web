@@ -3,6 +3,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import logo from "../../assets/renewd/logo.png";
 import arrowIcon from "../../assets/renewd/arrow-icon.svg";
 import facebookLogo from "../../assets/renewd/facebook_logo.png";
+import { useDonationModal } from "../ui/donationModalContext";
 import "./NavbarRenewd.css";
 
 const menuItems = [
@@ -17,6 +18,7 @@ function NavbarRenewd() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const { openDonationModal } = useDonationModal();
 
   const handleHashClick = (
     event: React.MouseEvent<HTMLAnchorElement>,
@@ -71,10 +73,17 @@ function NavbarRenewd() {
           >
             <img src={facebookLogo} alt="" />
           </a>
-          <Link to="/adomanyozas" className="navbar-renewd__cta">
+          <button
+            type="button"
+            className="navbar-renewd__cta"
+            onClick={() => {
+              setOpen(false);
+              openDonationModal();
+            }}
+          >
             <span>Adományozok</span>
             <img src={arrowIcon} alt="" className="navbar-renewd__cta-arrow" />
-          </Link>
+          </button>
           <button
             type="button"
             className="navbar-renewd__toggle"
