@@ -173,7 +173,9 @@
     }
 
     .home-renewd__footer-bottom {
-        position: static;
+        position: relative;
+        bottom: auto;
+        z-index: 1;
         margin-top: 24px;
         padding: 0 20px 20px;
     }
