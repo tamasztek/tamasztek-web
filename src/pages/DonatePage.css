@@ -45,6 +45,38 @@
   font-size: 20px;
 }
 
+.donate-page__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  margin: 16px 0 40px;
+  padding: 16px 48px;
+  background: var(--rd-color-donate);
+  color: var(--rd-color-donate-text);
+  border: 0;
+  border-radius: 8px;
+  font-family: var(--rd-font-body);
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+
+.donate-page__cta:hover {
+  filter: brightness(0.96);
+}
+
+.donate-page__cta-arrow {
+  width: 15px;
+  height: 9px;
+  transform: rotate(90deg);
+}
+
+.donate-page__text--small {
+  font-size: 16px;
+  color: var(--rd-text-muted);
+}
+
 .donate-page__email {
   display: inline-block;
   margin-top: 8px;
