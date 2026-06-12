@@ -7,6 +7,7 @@ import ProjectsPage from "./pages/ProjectsPage";
 import GalleryPage from "./pages/GalleryPage";
 import AlbumDetailPage from "./pages/AlbumDetailPage";
 import ComingSoonPage from "./pages/ComingSoonPage";
+import CookiePolicyPage from "./pages/CookiePolicyPage";
 import DonationModalProvider from "./components/ui/DonationModalProvider";
 
 const devInProgress = import.meta.env.VITE_DEV_IN_PROGRESS === "true";
@@ -26,6 +27,7 @@ function App() {
           <Route path="/projektek" element={<ProjectsPage />} />
           <Route path="/galeria" element={<GalleryPage />} />
           <Route path="/galeria/:publicId" element={<AlbumDetailPage />} />
+          <Route path="/adatvedelem" element={<CookiePolicyPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </DonationModalProvider>
