@@ -1,5 +1,6 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { openCookiePreferences } from "../../consent/initConsent";
+import BarionPaymentBadge from "../ui/BarionPaymentBadge";
 import footerRect from "../../assets/renewd/footer-rect.svg";
 import footerRectMobile from "../../assets/renewd/footer_rect_mobile.svg";
 import facebookFooter from "../../assets/renewd/facebook_footer.svg";
@@ -94,22 +95,26 @@ function FooterRenewd() {
         </a>
       </div>
 
-      <div className="home-renewd__footer-legal">
-        <Link to="/adatvedelem" className="home-renewd__footer-link">
-          Sütitájékoztató
-        </Link>
-        <button
-          type="button"
-          className="home-renewd__footer-link home-renewd__footer-cookie-btn"
-          onClick={openCookiePreferences}
-        >
-          Süti beállítások
-        </button>
-      </div>
+      <div className="home-renewd__footer-bottom">
+        <BarionPaymentBadge className="barion-badge--footer" showNote={false} />
 
-      <p className="home-renewd__footer-copyright">
-        © {year} Támaszték Egyesület. Minden jog fenntartva.
-      </p>
+        <div className="home-renewd__footer-legal">
+          <Link to="/adatvedelem" className="home-renewd__footer-link">
+            Sütitájékoztató
+          </Link>
+          <button
+            type="button"
+            className="home-renewd__footer-link home-renewd__footer-cookie-btn"
+            onClick={openCookiePreferences}
+          >
+            Süti beállítások
+          </button>
+        </div>
+
+        <p className="home-renewd__footer-copyright">
+          © {year} Támaszték Egyesület. Minden jog fenntartva.
+        </p>
+      </div>
     </footer>
   );
 }
