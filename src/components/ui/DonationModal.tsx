@@ -8,6 +8,7 @@ import {
   type SupportTier,
 } from "../../types/donation";
 import Toast, { type ToastData } from "./Toast";
+import BarionPaymentBadge from "./BarionPaymentBadge";
 import "./DonationModal.css";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -260,6 +261,7 @@ function DonationModal({ onClose }: DonationModalProps) {
           <p className="donation-modal__note">
             A fizetés a Barion biztonságos felületén történik.
           </p>
+          <BarionPaymentBadge className="barion-badge--modal" showNote={false} />
         </form>
       </div>
 
