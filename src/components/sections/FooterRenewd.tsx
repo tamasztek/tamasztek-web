@@ -95,26 +95,26 @@ function FooterRenewd() {
         </a>
       </div>
 
-      <div className="home-renewd__footer-payment">
+      <div className="home-renewd__footer-bottom">
         <BarionPaymentBadge className="barion-badge--footer" showNote={false} />
-      </div>
 
-      <div className="home-renewd__footer-legal">
-        <Link to="/adatvedelem" className="home-renewd__footer-link">
-          Sütitájékoztató
-        </Link>
-        <button
-          type="button"
-          className="home-renewd__footer-link home-renewd__footer-cookie-btn"
-          onClick={openCookiePreferences}
-        >
-          Süti beállítások
-        </button>
-      </div>
+        <div className="home-renewd__footer-legal">
+          <Link to="/adatvedelem" className="home-renewd__footer-link">
+            Sütitájékoztató
+          </Link>
+          <button
+            type="button"
+            className="home-renewd__footer-link home-renewd__footer-cookie-btn"
+            onClick={openCookiePreferences}
+          >
+            Süti beállítások
+          </button>
+        </div>
 
-      <p className="home-renewd__footer-copyright">
-        © {year} Támaszték Egyesület. Minden jog fenntartva.
-      </p>
+        <p className="home-renewd__footer-copyright">
+          © {year} Támaszték Egyesület. Minden jog fenntartva.
+        </p>
+      </div>
     </footer>
   );
 }
