@@ -1,5 +1,6 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { openCookiePreferences } from "../../consent/initConsent";
+import BarionPaymentBadge from "../ui/BarionPaymentBadge";
 import footerRect from "../../assets/renewd/footer-rect.svg";
 import footerRectMobile from "../../assets/renewd/footer_rect_mobile.svg";
 import facebookFooter from "../../assets/renewd/facebook_footer.svg";
@@ -92,6 +93,10 @@ function FooterRenewd() {
         >
           <img src={facebookFooter} alt="" />
         </a>
+      </div>
+
+      <div className="home-renewd__footer-payment">
+        <BarionPaymentBadge className="barion-badge--footer" showNote={false} />
       </div>
 
       <div className="home-renewd__footer-legal">

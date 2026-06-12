@@ -112,6 +112,13 @@
     font-family: inherit;
 }
 
+.home-renewd__footer-payment {
+    position: absolute;
+    right: 40px;
+    bottom: 18px;
+    z-index: 1;
+}
+
 .home-renewd__footer-copyright {
     position: absolute;
     left: 0;
@@ -165,6 +172,13 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: 14px 20px;
+    }
+
+    .home-renewd__footer-payment {
+        position: static;
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
     }
 
     .home-renewd__footer-copyright {

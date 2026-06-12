@@ -26,10 +26,13 @@
     text-decoration: underline;
 }
 
-/* Önálló fizetési sáv a főoldalon, a footer fölött. */
-.barion-badge--band {
-    padding: 28px 20px;
-    background: var(--rd-bg-cream);
+/* Footer, jobb alsó sarok – kis fehér "pill", hogy a logók a sötét háttéren is jól lássanak. */
+.barion-badge--footer .barion-badge__strip {
+    max-width: 168px;
+    background: #fff;
+    padding: 6px 11px;
+    border-radius: 9px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 /* A donation modalban kompaktabb, a Barion-megjegyzés alá. */
