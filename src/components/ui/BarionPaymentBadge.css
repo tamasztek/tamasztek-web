@@ -1,0 +1,42 @@
+.barion-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.barion-badge__strip {
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    display: block;
+}
+
+.barion-badge__note {
+    margin: 0;
+    font-family: var(--rd-font-body);
+    font-size: 13px;
+    line-height: 1.4;
+    text-align: center;
+    color: var(--rd-text-muted);
+}
+
+.barion-badge__note a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+/* Önálló fizetési sáv a főoldalon, a footer fölött. */
+.barion-badge--band {
+    padding: 28px 20px;
+    background: var(--rd-bg-cream);
+}
+
+/* A donation modalban kompaktabb, a Barion-megjegyzés alá. */
+.barion-badge--modal {
+    margin-top: 4px;
+}
+
+.barion-badge--modal .barion-badge__strip {
+    max-width: 280px;
+}

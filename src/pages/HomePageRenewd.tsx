@@ -8,6 +8,7 @@ import AchievedGoalsRenewd from "../components/sections/AchievedGoalsRenewd";
 import NewsRenewd from "../components/sections/NewsRenewd";
 import ContactRenewd from "../components/sections/ContactRenewd";
 import FooterRenewd from "../components/sections/FooterRenewd";
+import BarionPaymentBadge from "../components/ui/BarionPaymentBadge";
 import Seo from "../components/Seo";
 import { fetchFeaturedNews } from "../services/newsService";
 import type { NewsItem } from "../types/news";
@@ -48,6 +49,7 @@ function HomePageRenewd() {
         <NewsRenewd news={news} loading={loading} error={error} />
         <ContactRenewd />
       </main>
+      <BarionPaymentBadge className="barion-badge--band" />
       <FooterRenewd />
     </div>
   );

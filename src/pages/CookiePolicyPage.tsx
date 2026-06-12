@@ -41,14 +41,19 @@ function CookiePolicyPage() {
             </p>
             <p>
               Ha nem járulsz hozzá, továbbra is tudsz adományozni – a fizetés során
-              azonban előfordulhat néhány extra hitelesítési lépés. A Barion
-              adatkezeléséről a{" "}
+              azonban előfordulhat néhány extra hitelesítési lépés.
+            </p>
+            <p>
+              A bankkártyás fizetést a <strong>Barion Payment Zrt.</strong> biztosítja,
+              amely a Magyar Nemzeti Bank felügyelete alatt álló intézmény; engedélyének
+              száma: H-EN-I-1064/2013. A kártyaadatok a kereskedőhöz nem jutnak el. A
+              Barion adatkezeléséről a{" "}
               <a
-                href="https://www.barion.com/hu/altalanos-szerzodesi-feltetelek/"
+                href="https://www.barion.com/hu/adatkezelesi-tajekoztato/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Barion weboldalán
+                Barion adatkezelési tájékoztatójában
               </a>{" "}
               olvashatsz.
             </p>
