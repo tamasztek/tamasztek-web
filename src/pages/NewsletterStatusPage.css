@@ -1,0 +1,75 @@
+.newsletter-status {
+    width: 100%;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    background: var(--rd-bg-cream);
+}
+
+.newsletter-status__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    max-width: 560px;
+    width: 100%;
+    padding: 48px 40px;
+    text-align: center;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: var(--rd-shadow-card);
+}
+
+.newsletter-status__title {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--rd-color-primary);
+}
+
+.newsletter-status__text {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--rd-text-muted);
+}
+
+.newsletter-status__button {
+    margin-top: 8px;
+    display: inline-block;
+    padding: 14px 36px;
+    background: var(--rd-color-donate);
+    color: #fff;
+    border: 0;
+    border-radius: 8px;
+    font-family: var(--rd-font-body);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.3;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.newsletter-status__link {
+    font-size: 14px;
+    color: var(--rd-text-muted);
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .newsletter-status {
+        padding: 48px 16px;
+    }
+
+    .newsletter-status__card {
+        padding: 32px 22px;
+    }
+
+    .newsletter-status__title {
+        font-size: 24px;
+    }
+}

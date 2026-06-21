@@ -8,6 +8,8 @@ import GalleryPage from "./pages/GalleryPage";
 import AlbumDetailPage from "./pages/AlbumDetailPage";
 import ComingSoonPage from "./pages/ComingSoonPage";
 import CookiePolicyPage from "./pages/CookiePolicyPage";
+import NewsletterConfirmPage from "./pages/NewsletterConfirmPage";
+import NewsletterUnsubscribePage from "./pages/NewsletterUnsubscribePage";
 import DonationModalProvider from "./components/ui/DonationModalProvider";
 
 const devInProgress = import.meta.env.VITE_DEV_IN_PROGRESS === "true";
@@ -28,6 +30,14 @@ function App() {
           <Route path="/galeria" element={<GalleryPage />} />
           <Route path="/galeria/:publicId" element={<AlbumDetailPage />} />
           <Route path="/adatvedelem" element={<CookiePolicyPage />} />
+          <Route
+            path="/hirlevel/megerosites"
+            element={<NewsletterConfirmPage />}
+          />
+          <Route
+            path="/hirlevel/leiratkozas"
+            element={<NewsletterUnsubscribePage />}
+          />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </DonationModalProvider>
