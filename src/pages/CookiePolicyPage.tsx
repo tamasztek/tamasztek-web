@@ -8,7 +8,7 @@ import "./CookiePolicyPage.css";
 function CookiePolicyPage() {
   return (
     <div className="cookie-policy-page">
-      <Seo title="Sütitájékoztató" path="/adatvedelem" />
+      <Seo title="Sütitájékoztató" path="/sutitajekoztato" />
       <NavbarRenewd />
       <main className="cookie-policy-page__main">
         <div className="cookie-policy-page__content">
@@ -49,7 +49,7 @@ function CookiePolicyPage() {
               száma: H-EN-I-1064/2013. A kártyaadatok a kereskedőhöz nem jutnak el. A
               Barion adatkezeléséről a{" "}
               <a
-                href="https://www.barion.com/hu/adatkezelesi-tajekoztato/"
+                href="https://www.barion.com/hu/adatvedelmi-tajekoztato/"
                 target="_blank"
                 rel="noopener noreferrer"
               >

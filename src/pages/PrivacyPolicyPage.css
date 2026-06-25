@@ -1,4 +1,4 @@
-.cookie-policy-page {
+.privacy-policy-page {
     width: 100vw;
     margin-left: calc(50% - 50vw);
     background: var(--rd-bg-cream);
@@ -9,35 +9,41 @@
     flex-direction: column;
 }
 
-.cookie-policy-page__main {
+.privacy-policy-page__main {
     flex: 1;
     display: flex;
     justify-content: center;
     padding: 48px 20px 80px;
 }
 
-.cookie-policy-page__content {
+.privacy-policy-page__content {
     width: 100%;
     max-width: 760px;
     color: var(--rd-text-body);
     font-family: var(--rd-font-body);
 }
 
-.cookie-policy-page__title {
+.privacy-policy-page__title {
     font-family: var(--rd-font-body);
     color: var(--rd-color-primary);
     font-size: 2.25rem;
     margin: 0 0 16px;
 }
 
-.cookie-policy-page__intro {
+.privacy-policy-page__intro {
     color: var(--rd-text-muted);
     font-size: 1.05rem;
     line-height: 1.6;
+    margin: 0 0 12px;
+}
+
+.privacy-policy-page__updated {
+    color: var(--rd-text-muted);
+    font-size: 0.95rem;
     margin: 0 0 32px;
 }
 
-.cookie-policy-page__section {
+.privacy-policy-page__section {
     background: var(--rd-card-bg);
     border: 1px solid var(--rd-color-border);
     border-radius: 16px;
@@ -46,27 +52,52 @@
     margin-bottom: 20px;
 }
 
-.cookie-policy-page__section h2 {
+.privacy-policy-page__section h2 {
     color: var(--rd-text-dark);
     font-size: 1.3rem;
     margin: 0 0 12px;
 }
 
-.cookie-policy-page__section p {
+.privacy-policy-page__section h3 {
+    color: var(--rd-text-dark);
+    font-size: 1.05rem;
+    margin: 20px 0 8px;
+}
+
+.privacy-policy-page__section p {
     line-height: 1.65;
     margin: 0 0 12px;
 }
 
-.cookie-policy-page__section p:last-child {
+.privacy-policy-page__section p:last-child {
     margin-bottom: 0;
 }
 
-.cookie-policy-page__section a {
+.privacy-policy-page__section ul {
+    line-height: 1.65;
+    margin: 0 0 12px;
+    padding-left: 22px;
+}
+
+.privacy-policy-page__section li {
+    margin-bottom: 6px;
+}
+
+.privacy-policy-page__section a {
     color: var(--rd-color-primary);
     text-decoration: underline;
 }
 
-.cookie-policy-page__manage-btn {
+/* Kiemelt placeholder – ide a felhasználótól vár adatot az oldal */
+.privacy-policy-page__placeholder {
+    background: #fff3cd;
+    color: #6b4d00;
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-weight: 600;
+}
+
+.privacy-policy-page__manage-btn {
     margin-top: 8px;
     background: var(--rd-color-primary);
     color: var(--rd-color-donate-text);
@@ -80,6 +111,16 @@
     transition: background 0.2s ease;
 }
 
-.cookie-policy-page__manage-btn:hover {
+.privacy-policy-page__manage-btn:hover {
     background: #46101d;
+}
+
+@media (max-width: 768px) {
+    .privacy-policy-page__title {
+        font-size: 30px;
+    }
+    .privacy-policy-page__section {
+        border-radius: 12px;
+        padding: 20px 16px;
+    }
 }

@@ -8,6 +8,7 @@ import GalleryPage from "./pages/GalleryPage";
 import AlbumDetailPage from "./pages/AlbumDetailPage";
 import ComingSoonPage from "./pages/ComingSoonPage";
 import CookiePolicyPage from "./pages/CookiePolicyPage";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import NewsletterConfirmPage from "./pages/NewsletterConfirmPage";
 import NewsletterUnsubscribePage from "./pages/NewsletterUnsubscribePage";
 import DonationModalProvider from "./components/ui/DonationModalProvider";
@@ -29,7 +30,8 @@ function App() {
           <Route path="/projektek" element={<ProjectsPage />} />
           <Route path="/galeria" element={<GalleryPage />} />
           <Route path="/galeria/:publicId" element={<AlbumDetailPage />} />
-          <Route path="/adatvedelem" element={<CookiePolicyPage />} />
+          <Route path="/adatvedelem" element={<PrivacyPolicyPage />} />
+          <Route path="/sutitajekoztato" element={<CookiePolicyPage />} />
           <Route
             path="/hirlevel/megerosites"
             element={<NewsletterConfirmPage />}

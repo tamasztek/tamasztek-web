@@ -180,8 +180,9 @@ function ContactRenewd() {
                     Elolvastam és elfogadom az{" "}
                     <a
                       className="home-renewd__contact-gdpr-link"
-                      href="#"
-                      onClick={(e) => e.preventDefault()}
+                      href="/adatvedelem"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       adatkezelési tájékoztatót.
                     </a>

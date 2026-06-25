@@ -100,6 +100,9 @@ function FooterRenewd() {
 
         <div className="home-renewd__footer-legal">
           <Link to="/adatvedelem" className="home-renewd__footer-link">
+            Adatkezelési tájékoztató
+          </Link>
+          <Link to="/sutitajekoztato" className="home-renewd__footer-link">
             Sütitájékoztató
           </Link>
           <button

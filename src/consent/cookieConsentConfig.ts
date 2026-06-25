@@ -9,7 +9,7 @@
 import type { CookieConsentConfig } from "vanilla-cookieconsent";
 import { loadBarionPixel, unloadBarionPixel } from "../analytics/barionPixel";
 
-const POLICY_PATH = "/adatvedelem";
+const POLICY_PATH = "/sutitajekoztato";
 
 // A "marketing" kategória állapotát szinkronizálja a Barion Pixellel.
 function syncBarionPixel(acceptedCategory: (name: string) => boolean): void {

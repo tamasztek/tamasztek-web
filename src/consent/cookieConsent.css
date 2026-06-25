@@ -47,3 +47,20 @@
   border: 1.5px solid rgba(90, 21, 37, 0.18); /* --rd-color-primary halványan */
   box-shadow: 0 10px 30px rgba(18, 4, 7, 0.18);
 }
+
+/* Mobil: a "Süti beállítások" (preferences) modal töltse ki a képernyőt
+ * tiszta teljes képernyős sheetként – ne lógjon túl és ne maradjon üres hely.
+ * A vanilla-cookieconsent alap mobil-szabályát erősítjük meg/garantáljuk. */
+@media (max-width: 640px) {
+  #cc-main .pm {
+    inset: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 100dvh !important;
+    margin: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    transform: translateY(0) !important;
+  }
+}
