@@ -1,0 +1,45 @@
+.barion-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.barion-badge__strip {
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    display: block;
+}
+
+.barion-badge__note {
+    margin: 0;
+    font-family: var(--rd-font-body);
+    font-size: 13px;
+    line-height: 1.4;
+    text-align: center;
+    color: var(--rd-text-muted);
+}
+
+.barion-badge__note a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+/* Footer, jobb alsó sarok – kis fehér "pill", hogy a logók a sötét háttéren is jól lássanak. */
+.barion-badge--footer .barion-badge__strip {
+    max-width: 240px;
+    background: #fff;
+    padding: 8px 14px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* A donation modalban kompaktabb, a Barion-megjegyzés alá. */
+.barion-badge--modal {
+    margin-top: 4px;
+}
+
+.barion-badge--modal .barion-badge__strip {
+    max-width: 280px;
+}

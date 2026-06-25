@@ -1,0 +1,116 @@
+.donation-confirm {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--rd-bg-page);
+  font-family: var(--rd-font-body);
+  color: var(--rd-text-dark);
+}
+
+.donation-confirm * {
+  box-sizing: border-box;
+}
+
+.donation-confirm__main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+}
+
+.donation-confirm__content {
+  max-width: 640px;
+  text-align: center;
+}
+
+.donation-confirm__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  margin-bottom: 24px;
+  border-radius: 50%;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+}
+
+.donation-confirm__icon--success {
+  background: #2e9e5b;
+}
+
+.donation-confirm__icon--failed {
+  background: var(--rd-color-error);
+}
+
+.donation-confirm__icon--pending {
+  background: var(--rd-color-donate);
+  color: var(--rd-text-dark);
+}
+
+.donation-confirm__spinner {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 24px;
+  border: 5px solid var(--rd-bg-sand);
+  border-top-color: var(--rd-color-donate);
+  border-radius: 50%;
+  animation: donation-confirm-spin 0.9s linear infinite;
+}
+
+@keyframes donation-confirm-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.donation-confirm__title {
+  margin: 0 0 16px;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--rd-color-primary);
+}
+
+.donation-confirm__text {
+  margin: 0 0 16px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.donation-confirm__back {
+  display: inline-block;
+  margin-top: 24px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--rd-color-primary);
+  text-decoration: none;
+}
+
+.donation-confirm__back:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .donation-confirm {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .donation-confirm__main {
+    padding: 48px 20px;
+  }
+
+  .donation-confirm__title {
+    font-size: 26px;
+  }
+
+  .donation-confirm__text {
+    font-size: 16px;
+  }
+}

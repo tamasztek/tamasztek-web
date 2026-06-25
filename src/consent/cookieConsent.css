@@ -1,0 +1,49 @@
+/*
+ * Cookie consent – a vanilla-cookieconsent `--cc-*` változóinak rákötése a Renewd
+ * design tokenekre (src/styles/renewd-tokens.css). Így a banner és a beállítások modal
+ * a weboldal stílusát veszi fel, anélkül hogy a teljes markupot felül kellene írni.
+ */
+
+#cc-main {
+  /* Tipográfia */
+  --cc-font-family: var(--rd-font-body);
+
+  /* Felületek és szöveg */
+  --cc-bg: var(--rd-bg-cream);
+  --cc-text: var(--rd-text-dark);
+  --cc-secondary-text: var(--rd-text-muted);
+
+  /* Elválasztók, kártyák a beállítások modalban */
+  --cc-separator-bg: var(--rd-color-border);
+  --cc-btn-border-radius: 12px;
+  --cc-modal-border-radius: 16px;
+  --cc-cookie-category-block-bg: var(--rd-card-bg);
+  --cc-cookie-category-block-bg-hover: var(--rd-bg-sand);
+  --cc-overlay-bg: rgba(18, 4, 7, 0.55);
+
+  /* Elsődleges gomb (Mindet elfogadom) – a primary márkaszín */
+  --cc-btn-primary-bg: var(--rd-color-primary);
+  --cc-btn-primary-color: var(--rd-color-donate-text);
+  --cc-btn-primary-hover-bg: #46101d;
+  --cc-btn-primary-hover-color: var(--rd-color-donate-text);
+
+  /* Másodlagos gomb (Elutasítom / Beállítások) */
+  --cc-btn-secondary-bg: var(--rd-card-bg);
+  --cc-btn-secondary-color: var(--rd-text-dark);
+  --cc-btn-secondary-hover-bg: var(--rd-bg-sand);
+  --cc-btn-secondary-hover-color: var(--rd-text-dark);
+
+  /* Toggle (kategória kapcsoló) bekapcsolt állapot */
+  --cc-toggle-on-bg: var(--rd-color-join);
+  --cc-toggle-readonly-bg: var(--rd-color-border);
+
+  --cc-link-color: var(--rd-color-primary);
+}
+
+/* A banner/modal különüljön el a hasonló színű oldalháttértől:
+ * diszkrét keret + a kártyánál erősebb árnyék. */
+#cc-main .cm,
+#cc-main .pm {
+  border: 1.5px solid rgba(90, 21, 37, 0.18); /* --rd-color-primary halványan */
+  box-shadow: 0 10px 30px rgba(18, 4, 7, 0.18);
+}

@@ -1,0 +1,253 @@
+.home-renewd__contact {
+    width: 100%;
+    background: var(--rd-bg-sand);
+}
+
+.home-renewd__contact .home-renewd__section-inner {
+    min-height: 796px;
+    padding: 80px 90px;
+}
+
+.home-renewd__contact-grid {
+    display: flex;
+    align-items: flex-end;
+    gap: 67px;
+}
+
+/* ---------- Bal oszlop: kép + buzdító szöveg ---------- */
+
+.home-renewd__contact-aside {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    flex-shrink: 0;
+}
+
+.home-renewd__contact-image {
+    width: 500px;
+    height: 333px;
+    object-fit: cover;
+    display: block;
+}
+
+.home-renewd__contact-lead {
+    margin: 48px 0 0;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #000;
+}
+
+/* ---------- Jobb oszlop: űrlap ---------- */
+
+.home-renewd__contact-main {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 590px;
+    flex-shrink: 0;
+}
+
+.home-renewd__contact-title {
+    margin: 0;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #011111;
+}
+
+.home-renewd__contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.home-renewd__contact-field {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Mezőszintű hibaüzenet – abszolút pozíció, hogy ne tolja lejjebb a mezőket */
+.home-renewd__contact-fielderror {
+    position: absolute;
+    top: 100%;
+    left: 2px;
+    margin-top: 1px;
+    font-size: 11px;
+    line-height: 1.2;
+    color: var(--rd-color-error);
+    pointer-events: none;
+}
+
+/* Vizuálisan rejtett label – csak képernyőolvasónak (a designon placeholder látszik) */
+.home-renewd__contact-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.home-renewd__contact-input {
+    width: 100%;
+    padding: 10px 16px;
+    background: #fff;
+    border: 1px solid var(--rd-color-border);
+    border-radius: 6px;
+    font-family: var(--rd-font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--rd-text-body);
+}
+
+.home-renewd__contact-input::placeholder {
+    color: var(--rd-text-muted);
+}
+
+.home-renewd__contact-input:focus {
+    outline: 2px solid var(--rd-color-donate);
+    outline-offset: 1px;
+}
+
+/* Hibás mező – compound szelektor, hogy a fenti border shorthandet felülírja */
+.home-renewd__contact-input.home-renewd__contact-input--error {
+    border-color: var(--rd-color-error);
+}
+
+.home-renewd__contact-textarea {
+    height: 176px;
+    resize: none;
+    /* Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: var(--rd-color-donate) transparent;
+}
+
+/* WebKit (Chrome/Safari/Edge) scrollbar */
+.home-renewd__contact-textarea::-webkit-scrollbar {
+    width: 10px;
+}
+
+.home-renewd__contact-textarea::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 6px 0;
+}
+
+.home-renewd__contact-textarea::-webkit-scrollbar-thumb {
+    background: var(--rd-color-donate);
+    border-radius: 999px;
+    border: 3px solid #fff;
+    background-clip: padding-box;
+}
+
+.home-renewd__contact-textarea::-webkit-scrollbar-thumb:hover {
+    background: #f0a533;
+    background-clip: padding-box;
+    border: 3px solid #fff;
+}
+
+.home-renewd__contact-gdpr {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--rd-text-muted);
+    cursor: pointer;
+}
+
+.home-renewd__contact-gdpr input {
+    appearance: none;
+    -webkit-appearance: none;
+    position: relative;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    margin: 0;
+    background: #fff;
+    border: 1px solid var(--rd-text-muted);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Belül mindig fehér marad – pipálva csak a pipa jelenik meg */
+.home-renewd__contact-gdpr input:checked::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    width: 4px;
+    height: 8px;
+    border: solid var(--rd-color-donate);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.home-renewd__contact-gdpr-link {
+    color: var(--rd-color-donate);
+    text-decoration: none;
+}
+
+.home-renewd__contact-gdpr-link:hover {
+    text-decoration: underline;
+}
+
+.home-renewd__contact-submit {
+    width: 100%;
+    padding: 15px 30px;
+    background: var(--rd-color-donate);
+    color: #fff;
+    border: 0;
+    border-radius: 6px;
+    font-family: var(--rd-font-body);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.3;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.home-renewd__contact-submit:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 768px) {
+    .home-renewd__contact .home-renewd__section-inner {
+        min-height: 0;
+        padding: 40px 20px;
+    }
+
+    .home-renewd__contact-grid {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 32px;
+    }
+
+    .home-renewd__contact-aside,
+    .home-renewd__contact-main {
+        width: 100%;
+    }
+
+    .home-renewd__contact-image {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 500 / 333;
+    }
+
+    .home-renewd__contact-lead {
+        margin-top: 24px;
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .home-renewd__contact-title {
+        font-size: 30px;
+    }
+}

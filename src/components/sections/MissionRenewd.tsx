@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import missionCircle from "../../assets/renewd/mission-circle.png";
 import missionArrowText from "../../assets/renewd/mission-arrow-text.svg";
 import missionChurch from "../../assets/renewd/mission-church.png";
@@ -9,14 +8,20 @@ import donateBox from "../../assets/renewd/donate-box.png";
 import arrowIcon from "../../assets/renewd/arrow-icon.svg";
 import arrowStartMobile from "../../assets/renewd/arrow_start_mobile.svg";
 import arrowFinishMobile from "../../assets/renewd/arrow_finish_mobile.svg";
+import { useDonationModal } from "../ui/donationModalContext";
 import "./MissionRenewd.css";
 
 function DonateButton({ size = "lg" }: { size?: "lg" | "sm" }) {
+  const { openDonationModal } = useDonationModal();
   return (
-    <Link to="/adomanyozas" className={`hr-btn hr-btn--donate hr-btn--${size}`}>
+    <button
+      type="button"
+      className={`hr-btn hr-btn--donate hr-btn--${size}`}
+      onClick={openDonationModal}
+    >
       <span>Adományozok</span>
       <img src={arrowIcon} alt="" className="hr-btn__arrow" />
-    </Link>
+    </button>
   );
 }
 

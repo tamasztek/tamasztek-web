@@ -1,0 +1,210 @@
+.home-renewd__newsletter {
+    width: 100%;
+    background: var(--rd-bg-cream);
+}
+
+.home-renewd__newsletter .home-renewd__section-inner {
+    padding: 72px 90px;
+}
+
+.home-renewd__newsletter-card {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    padding: 48px 56px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: var(--rd-shadow-card);
+}
+
+.home-renewd__newsletter-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+}
+
+.home-renewd__newsletter-title {
+    margin: 0;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--rd-color-primary);
+}
+
+.home-renewd__newsletter-lead {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--rd-text-muted);
+}
+
+.home-renewd__newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.home-renewd__newsletter-fields {
+    display: flex;
+    gap: 20px;
+}
+
+.home-renewd__newsletter-field {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.home-renewd__newsletter-fielderror {
+    position: absolute;
+    top: 100%;
+    left: 2px;
+    margin-top: 2px;
+    font-size: 11px;
+    line-height: 1.2;
+    color: var(--rd-color-error);
+    pointer-events: none;
+}
+
+/* Vizuálisan rejtett label – csak képernyőolvasónak (placeholder látszik) */
+.home-renewd__newsletter-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.home-renewd__newsletter-input {
+    width: 100%;
+    padding: 12px 16px;
+    background: #fff;
+    border: 1px solid var(--rd-color-border);
+    border-radius: 8px;
+    font-family: var(--rd-font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--rd-text-body);
+}
+
+.home-renewd__newsletter-input::placeholder {
+    color: var(--rd-text-muted);
+}
+
+.home-renewd__newsletter-input:focus {
+    outline: 2px solid var(--rd-color-donate);
+    outline-offset: 1px;
+}
+
+.home-renewd__newsletter-input.home-renewd__newsletter-input--error {
+    border-color: var(--rd-color-error);
+}
+
+.home-renewd__newsletter-field--gdpr {
+    flex-direction: row;
+}
+
+.home-renewd__newsletter-gdpr {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--rd-text-muted);
+    cursor: pointer;
+}
+
+.home-renewd__newsletter-gdpr input {
+    appearance: none;
+    -webkit-appearance: none;
+    position: relative;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    margin: 0;
+    background: #fff;
+    border: 1px solid var(--rd-text-muted);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.home-renewd__newsletter-gdpr input:checked::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    width: 4px;
+    height: 8px;
+    border: solid var(--rd-color-donate);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.home-renewd__newsletter-gdpr-link {
+    color: var(--rd-color-donate);
+    text-decoration: none;
+}
+
+.home-renewd__newsletter-gdpr-link:hover {
+    text-decoration: underline;
+}
+
+.home-renewd__newsletter-submit {
+    align-self: center;
+    min-width: 240px;
+    padding: 15px 40px;
+    background: var(--rd-color-donate);
+    color: #fff;
+    border: 0;
+    border-radius: 8px;
+    font-family: var(--rd-font-body);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.3;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.home-renewd__newsletter-submit:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 768px) {
+    .home-renewd__newsletter .home-renewd__section-inner {
+        padding: 40px 20px;
+    }
+
+    .home-renewd__newsletter-card {
+        padding: 32px 22px;
+        gap: 22px;
+    }
+
+    .home-renewd__newsletter-title {
+        font-size: 26px;
+    }
+
+    .home-renewd__newsletter-lead {
+        font-size: 16px;
+    }
+
+    .home-renewd__newsletter-fields {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .home-renewd__newsletter-submit {
+        width: 100%;
+        min-width: 0;
+    }
+}
