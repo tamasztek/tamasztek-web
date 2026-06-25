@@ -29,7 +29,7 @@ function BarionPaymentBadge({
         <p className="barion-badge__note">
           A bankkártyás fizetést a{" "}
           <a
-            href="https://www.barion.com/hu/adatkezelesi-tajekoztato/"
+            href="https://www.barion.com/hu/adatvedelmi-tajekoztato/"
             target="_blank"
             rel="noopener noreferrer"
           >
