@@ -143,7 +143,8 @@ const ProjectsPage: React.FC = () => {
             </p>
           )}
 
-          <ul className="projects-list" role="list">
+          {projects.length > 0 && (
+          <ul key={activeTab} className="projects-list" role="list">
             {projects.map((project, index) => (
               <li key={project.id} className="project-item">
                 {index > 0 && (
@@ -265,6 +266,7 @@ const ProjectsPage: React.FC = () => {
               </li>
             ))}
           </ul>
+          )}
 
           {hasMore && (
             <div className="projects-page__load-more">
