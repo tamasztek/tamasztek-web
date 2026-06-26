@@ -21,6 +21,8 @@ function OccasionList({ projectId }: OccasionListProps) {
   const [occasions, setOccasions] = useState<Occasion[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  // Melyik alkalom coverImage-e töltődött már be – addig skeleton látszik.
+  const [loadedImages, setLoadedImages] = useState<Record<string, boolean>>({});
 
   // A projectId a komponens élettartama alatt nem változik (egy nyitott accordionhoz
   // egy projekt tartozik), így a kezdő loading/error állapot elég – nincs szükség
@@ -59,14 +61,43 @@ function OccasionList({ projectId }: OccasionListProps) {
   return (
     <ul className="occasion-list" role="list">
       {occasions.map((occasion) => (
-        <li key={occasion.id} className="occasion-item">
+        <li
+          key={occasion.id}
+          className={`occasion-item${
+            occasion.coverImage ? "" : " occasion-item--no-image"
+          }`}
+        >
           {occasion.coverImage && (
-            <img
-              src={getOccasionThumbUrl(occasion.coverImage.url)}
-              alt={occasion.coverImage.altText ?? ""}
-              className="occasion-item__image"
-              loading="lazy"
-            />
+            <div className="occasion-item__media">
+              {!loadedImages[occasion.id] && (
+                <span
+                  className="occasion-item__skeleton"
+                  aria-hidden="true"
+                />
+              )}
+              <img
+                src={getOccasionThumbUrl(occasion.coverImage.url)}
+                alt={occasion.coverImage.altText ?? ""}
+                className={`occasion-item__image${
+                  loadedImages[occasion.id]
+                    ? " occasion-item__image--loaded"
+                    : ""
+                }`}
+                loading="lazy"
+                onLoad={() =>
+                  setLoadedImages((prev) => ({
+                    ...prev,
+                    [occasion.id]: true,
+                  }))
+                }
+                onError={() =>
+                  setLoadedImages((prev) => ({
+                    ...prev,
+                    [occasion.id]: true,
+                  }))
+                }
+              />
+            </div>
           )}
           <div className="occasion-item__body">
             <span className="occasion-item__date">
