@@ -87,16 +87,24 @@
     border: none;
     border-radius: 999px;
     padding: 0.6rem 1.4rem;
-    transition: background 0.2s ease, color 0.2s ease;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
 }
 
 .projects-tab:hover {
-    color: var(--rd-color-primary);
+    /*color: var(--rd-color-primary);*/
+    transform: scale(1.01);
 }
 
 .projects-tab--active {
     color: #fff;
     background: var(--rd-color-primary);
+}
+
+.projects-tab--active:hover {
+    /*color: #fff;*/
 }
 
 .projects-page__status {
