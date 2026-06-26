@@ -16,6 +16,19 @@ export async function fetchGeneralSupportTiers(): Promise<SupportTier[]> {
   return res.json();
 }
 
+// Egy adott projekthez tartozó támogatási összegek.
+export async function fetchProjectSupportTiers(
+  projectPublicId: string,
+): Promise<SupportTier[]> {
+  const res = await fetch(
+    `${API_BASE}/web/support-tiers/project/${projectPublicId}`,
+  );
+  if (!res.ok) {
+    throw new Error("Nem sikerült betölteni a támogatási összegeket.");
+  }
+  return res.json();
+}
+
 // Adományfizetés kezdeményezése – a válasz paymentUrl-jére kell átirányítani (Barion).
 export async function startDonation(
   payload: StartDonationRequest,

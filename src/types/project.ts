@@ -14,6 +14,7 @@ export interface Project {
   participantCount: number | null;
   volunteerCount: number | null;
   coverImage: ProjectImage | null;
+  occasionCount: number;
 }
 
 export interface PageResponse<T> {

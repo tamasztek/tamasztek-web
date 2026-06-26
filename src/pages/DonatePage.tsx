@@ -32,7 +32,7 @@ function DonatePage() {
           <button
             type="button"
             className="donate-page__cta"
-            onClick={openDonationModal}
+            onClick={() => openDonationModal()}
           >
             <span>Adományozok</span>
             <img src={arrowIcon} alt="" className="donate-page__cta-arrow" />

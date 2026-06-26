@@ -1,7 +1,14 @@
 import { createContext, useContext } from "react";
 
+// Opcionális projekt-kontextus: ha meg van adva, az adomány a projekthez kötve indul,
+// és a modal a projekt saját támogatási összegeit tölti be.
+export interface DonationProjectContext {
+  projectPublicId: string;
+  projectTitle?: string;
+}
+
 export interface DonationModalContextValue {
-  openDonationModal: () => void;
+  openDonationModal: (project?: DonationProjectContext) => void;
 }
 
 export const DonationModalContext =

@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
-import { fetchProjects } from "../services/projectService";
+import { fetchProjects, type ProjectFilter } from "../services/projectService";
 import type { Project } from "../types/project";
+import { useDonationModal } from "../components/ui/donationModalContext";
+import OccasionList from "../components/sections/OccasionList";
 import NavbarRenewd from "../components/layout/NavbarRenewd";
 import Seo from "../components/Seo";
 import blobTeal from "../assets/renewd/projects/project_blob_1.svg";
@@ -8,30 +10,58 @@ import blobOrange from "../assets/renewd/projects/project_blob_2.svg";
 import "../styles/renewd-tokens.css";
 import "./ProjectsPage.css";
 
+const TABS: { key: ProjectFilter; label: string }[] = [
+  { key: "current", label: "Aktuális projektjeink" },
+  { key: "completed", label: "Megvalósult projektjeink" },
+];
+
 const ProjectsPage: React.FC = () => {
+  const [activeTab, setActiveTab] = useState<ProjectFilter>("current");
   const [projects, setProjects] = useState<Project[]>([]);
   const [page, setPage] = useState(0);
   const [hasMore, setHasMore] = useState(false);
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [expanded, setExpanded] = useState<Record<string, boolean>>({});
+  const { openDonationModal } = useDonationModal();
 
+  // Az aktív tab első oldalának betöltése (induláskor és tab-váltáskor). A
+  // reset a selectTab eseménykezelőben történik, így az effekt csak az async
+  // fetchet végzi.
   useEffect(() => {
-    console.log("ProjectsPage mounted");
-    fetchProjects(0)
+    let active = true;
+    fetchProjects(0, activeTab)
       .then((data) => {
+        if (!active) return;
         setProjects(data.items);
         setHasMore(data.page < data.totalPages - 1);
       })
-      .catch(() => setError("Nem sikerült betölteni a projekteket."))
-      .finally(() => setLoading(false));
-  }, []);
+      .catch(() => {
+        if (active) setError("Nem sikerült betölteni a projekteket.");
+      })
+      .finally(() => {
+        if (active) setLoading(false);
+      });
+    return () => {
+      active = false;
+    };
+  }, [activeTab]);
+
+  const selectTab = (tab: ProjectFilter) => {
+    if (tab === activeTab) return;
+    setActiveTab(tab);
+    setLoading(true);
+    setError(null);
+    setProjects([]);
+    setPage(0);
+    setExpanded({});
+  };
 
   const loadMore = () => {
-    console.log("In loadmore");
     const nextPage = page + 1;
     setLoadingMore(true);
-    fetchProjects(nextPage)
+    fetchProjects(nextPage, activeTab)
       .then((data) => {
         setProjects((prev) => [...prev, ...data.items]);
         setHasMore(data.page < data.totalPages - 1);
@@ -40,6 +70,9 @@ const ProjectsPage: React.FC = () => {
       .catch(() => setError("Nem sikerült betölteni a további projekteket."))
       .finally(() => setLoadingMore(false));
   };
+
+  const toggleOccasions = (id: string) =>
+    setExpanded((prev) => ({ ...prev, [id]: !prev[id] }));
 
   const formatDate = (dateStr: string) =>
     new Date(dateStr).toLocaleDateString("hu-HU", {
@@ -71,93 +104,161 @@ const ProjectsPage: React.FC = () => {
         <div className="projects-page__container">
           <h1 className="projects-page__title">Projektjeink</h1>
 
-        {loading && <p className="projects-page__status">Betöltés...</p>}
-
-        {error && (
-          <p className="projects-page__status projects-page__status--error">
-            {error}
-          </p>
-        )}
-
-        {!loading && !error && projects.length === 0 && (
-          <p className="projects-page__status">Még nincsenek projektek.</p>
-        )}
-
-        <ul className="projects-list" role="list">
-          {projects.map((project, index) => (
-            <li key={project.id} className="project-item">
-              {index > 0 && (
-                <hr className="project-divider" aria-hidden="true" />
-              )}
-              <article
-                className={`project-card${index % 2 !== 0 ? " project-card--reversed" : ""}`}
+          <div className="projects-tabs" role="tablist" aria-label="Projektek szűrése">
+            {TABS.map((tab) => (
+              <button
+                key={tab.key}
+                type="button"
+                role="tab"
+                aria-selected={activeTab === tab.key}
+                className={`projects-tab${
+                  activeTab === tab.key ? " projects-tab--active" : ""
+                }`}
+                onClick={() => selectTab(tab.key)}
               >
-                {project.coverImage ? (
-                  <figure className="project-card__figure">
-                    <img
-                      src={project.coverImage.url}
-                      alt={project.coverImage.altText ?? project.title}
-                      className="project-card__image"
-                      loading="lazy"
-                    />
-                  </figure>
-                ) : (
-                  <div
-                    className="project-card__image-placeholder"
-                    aria-hidden="true"
-                  />
-                )}
+                {tab.label}
+              </button>
+            ))}
+          </div>
 
-                <div className="project-card__body">
-                  <h2 className="project-card__title">{project.title}</h2>
-                  {project.subtitle && (
-                    <p className="project-card__subtitle">{project.subtitle}</p>
+          {loading && <p className="projects-page__status">Betöltés...</p>}
+
+          {error && (
+            <p className="projects-page__status projects-page__status--error">
+              {error}
+            </p>
+          )}
+
+          {!loading && !error && projects.length === 0 && (
+            <p className="projects-page__status">
+              {activeTab === "current"
+                ? "Jelenleg nincsenek aktuális projektek."
+                : "Még nincsenek megvalósult projektek."}
+            </p>
+          )}
+
+          <ul className="projects-list" role="list">
+            {projects.map((project, index) => (
+              <li key={project.id} className="project-item">
+                {index > 0 && (
+                  <hr className="project-divider" aria-hidden="true" />
+                )}
+                <article
+                  className={`project-card${index % 2 !== 0 ? " project-card--reversed" : ""}`}
+                >
+                  {project.coverImage ? (
+                    <figure className="project-card__figure">
+                      <img
+                        src={project.coverImage.url}
+                        alt={project.coverImage.altText ?? project.title}
+                        className="project-card__image"
+                        loading="lazy"
+                      />
+                    </figure>
+                  ) : (
+                    <div
+                      className="project-card__image-placeholder"
+                      aria-hidden="true"
+                    />
                   )}
-                  {project.description && (
-                    <p className="project-card__description">
-                      {project.description}
-                    </p>
-                  )}
-                  <div className="project-card__meta">
-                    {project.location && (
-                      <span className="project-card__meta-item">
-                        {project.location}
-                      </span>
+
+                  <div className="project-card__body">
+                    <h2 className="project-card__title">{project.title}</h2>
+                    {project.subtitle && (
+                      <p className="project-card__subtitle">
+                        {project.subtitle}
+                      </p>
                     )}
-                    {project.startDate && (
-                      <span className="project-card__meta-item">
-                        {formatDate(project.startDate)}
-                        {project.endDate && ` – ${formatDate(project.endDate)}`}
-                      </span>
+                    {project.description && (
+                      <p className="project-card__description">
+                        {project.description}
+                      </p>
                     )}
-                    {project.participantCount != null && (
-                      <span className="project-card__meta-item">
-                        {project.participantCount} résztvevő
-                      </span>
+                    <div className="project-card__meta">
+                      {project.location && (
+                        <span className="project-card__meta-item">
+                          {project.location}
+                        </span>
+                      )}
+                      {project.startDate && (
+                        <span className="project-card__meta-item">
+                          {formatDate(project.startDate)}
+                          {project.endDate &&
+                            ` – ${formatDate(project.endDate)}`}
+                        </span>
+                      )}
+                      {project.participantCount != null && (
+                        <span className="project-card__meta-item">
+                          {project.participantCount} résztvevő
+                        </span>
+                      )}
+                      {project.volunteerCount != null && (
+                        <span className="project-card__meta-item">
+                          {project.volunteerCount} önkéntes
+                        </span>
+                      )}
+                    </div>
+
+                    {activeTab === "current" && (
+                      <div className="project-card__support">
+                        <p className="project-card__support-text">
+                          Támogassa projektünket!
+                        </p>
+                        <button
+                          type="button"
+                          className="project-card__support-btn"
+                          onClick={() =>
+                            openDonationModal({
+                              projectPublicId: project.id,
+                              projectTitle: project.title,
+                            })
+                          }
+                        >
+                          Adományozok
+                        </button>
+                      </div>
                     )}
-                    {project.volunteerCount != null && (
-                      <span className="project-card__meta-item">
-                        {project.volunteerCount} önkéntes
-                      </span>
+
+                    {project.occasionCount > 0 && (
+                      <div className="project-card__occasions">
+                        <button
+                          type="button"
+                          className="project-card__occasions-toggle"
+                          aria-expanded={!!expanded[project.id]}
+                          onClick={() => toggleOccasions(project.id)}
+                        >
+                          Tekintse meg alkalmainkat!
+                          <span
+                            className="project-card__occasions-caret"
+                            aria-hidden="true"
+                          >
+                            {expanded[project.id] ? "▲" : "▼"}
+                          </span>
+                        </button>
+                        {expanded[project.id] && (
+                          <OccasionList projectId={project.id} />
+                        )}
+                      </div>
                     )}
                   </div>
-                </div>
-              </article>
-            </li>
-          ))}
-        </ul>
+                </article>
+              </li>
+            ))}
+          </ul>
 
-        {hasMore && (
-          <div className="projects-page__load-more">
-            <button
-              type="button"
-              className="projects-page__load-more-btn"
-              onClick={loadMore}
-            >
-              {loadingMore ? "Betöltés..." : "Megnézem a további projekteket"}
-            </button>
-          </div>
-        )}
+          {hasMore && (
+            <div className="projects-page__load-more">
+              <button
+                type="button"
+                className="projects-page__load-more-btn"
+                onClick={loadMore}
+              >
+                {loadingMore
+                  ? "Betöltés..."
+                  : "Megnézem a további projekteket"}
+              </button>
+            </div>
+          )}
         </div>
       </main>
     </div>

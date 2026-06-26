@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import {
   fetchGeneralSupportTiers,
+  fetchProjectSupportTiers,
   startDonation,
 } from "../../services/donationService";
 import {
   DONATION_TX_STORAGE_KEY,
   type SupportTier,
 } from "../../types/donation";
+import type { DonationProjectContext } from "./donationModalContext";
 import Toast, { type ToastData } from "./Toast";
 import BarionPaymentBadge from "./BarionPaymentBadge";
 import "./DonationModal.css";
@@ -15,6 +17,8 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 interface DonationModalProps {
   onClose: () => void;
+  // Ha meg van adva, az adomány ehhez a projekthez kötve indul.
+  project?: DonationProjectContext | null;
 }
 
 type FieldErrors = {
@@ -28,7 +32,7 @@ function formatHuf(amount: number): string {
 
 // A komponens csak nyitott állapotban van mountolva (ld. DonationModalProvider),
 // így minden megnyitáskor friss állapottal indul – nincs szükség reset-effektre.
-function DonationModal({ onClose }: DonationModalProps) {
+function DonationModal({ onClose, project }: DonationModalProps) {
   const [tiers, setTiers] = useState<SupportTier[]>([]);
   const [tiersLoading, setTiersLoading] = useState(true);
 
@@ -50,10 +54,21 @@ function DonationModal({ onClose }: DonationModalProps) {
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [onClose]);
 
-  // Tierek betöltése mountkor (a setState csak async callbackben fut)
+  // Tierek betöltése mountkor (a setState csak async callbackben fut).
+  // Projekt-kontextus esetén a projekt saját tierjeit töltjük; ha nincs ilyen,
+  // visszaesünk az általános (projekthez nem kötött) összegekre.
   useEffect(() => {
     let active = true;
-    fetchGeneralSupportTiers()
+    const load = async (): Promise<SupportTier[]> => {
+      if (project) {
+        const projectTiers = await fetchProjectSupportTiers(
+          project.projectPublicId,
+        );
+        if (projectTiers.length > 0) return projectTiers;
+      }
+      return fetchGeneralSupportTiers();
+    };
+    load()
       .then((data) => {
         if (active) setTiers(data);
       })
@@ -67,7 +82,7 @@ function DonationModal({ onClose }: DonationModalProps) {
     return () => {
       active = false;
     };
-  }, []);
+  }, [project]);
 
   // A kiválasztott tier összege vagy az egyedi összeg
   const selectedTier = tiers.find((t) => t.publicId === selectedTierId) ?? null;
@@ -106,7 +121,7 @@ function DonationModal({ onClose }: DonationModalProps) {
     setSubmitting(true);
     try {
       const res = await startDonation({
-        projectPublicId: null,
+        projectPublicId: project ? project.projectPublicId : null,
         supportTierPublicId: selectedTier ? selectedTier.publicId : null,
         donorName: donorName.trim() || null,
         donorEmail: donorEmail.trim(),
@@ -149,11 +164,14 @@ function DonationModal({ onClose }: DonationModalProps) {
         </button>
 
         <h2 id="donation-modal-title" className="donation-modal__title">
-          Adományozok
+          {project?.projectTitle
+            ? `„${project.projectTitle}” támogatása`
+            : "Adományozok"}
         </h2>
         <p className="donation-modal__lead">
-          Köszönjük, hogy támogatod az egyesület munkáját! Válassz egy összeget,
-          vagy adj meg sajátot.
+          {project
+            ? "Köszönjük, hogy támogatod ezt a projektünket! Válassz egy összeget, vagy adj meg sajátot."
+            : "Köszönjük, hogy támogatod az egyesület munkáját! Válassz egy összeget, vagy adj meg sajátot."}
         </p>
 
         <form className="donation-modal__form" onSubmit={handleSubmit} noValidate>

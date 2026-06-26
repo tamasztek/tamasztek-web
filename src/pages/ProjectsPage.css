@@ -69,6 +69,36 @@
     line-height: 1.1;
 }
 
+/* ── Tabs ─────────────────────────────────────────────── */
+.projects-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 0 0 2.5rem;
+}
+
+.projects-tab {
+    cursor: pointer;
+    font-family: var(--rd-font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--rd-text-muted);
+    background: var(--rd-card-bg);
+    border: none;
+    border-radius: 999px;
+    padding: 0.6rem 1.4rem;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.projects-tab:hover {
+    color: var(--rd-color-primary);
+}
+
+.projects-tab--active {
+    color: #fff;
+    background: var(--rd-color-primary);
+}
+
 .projects-page__status {
     font-size: 1rem;
     color: var(--rd-text-muted);
@@ -172,6 +202,62 @@
     border-radius: 999px;
     padding: 0.25rem 0.75rem;
     white-space: nowrap;
+}
+
+/* ── Support CTA (csak aktuális projekteknél) ─────────── */
+.project-card__support {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1rem;
+    margin-top: 1rem;
+}
+
+.project-card__support-text {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--rd-color-primary);
+}
+
+.project-card__support-btn {
+    cursor: pointer;
+    font-family: var(--rd-font-body);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--rd-color-primary);
+    border: none;
+    border-radius: 999px;
+    padding: 0.55rem 1.4rem;
+    transition: opacity 0.2s ease;
+}
+
+.project-card__support-btn:hover {
+    opacity: 0.9;
+}
+
+/* ── Occasions accordion ──────────────────────────────── */
+.project-card__occasions {
+    margin-top: 1rem;
+}
+
+.project-card__occasions-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-family: var(--rd-font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--rd-color-primary);
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.project-card__occasions-caret {
+    font-size: 0.7rem;
 }
 
 /* ── Load more ────────────────────────────────────────── */

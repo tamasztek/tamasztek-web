@@ -21,3 +21,8 @@ export function getGridUrl(url: string): string {
 export function getSliderUrl(url: string): string {
   return injectTransformation(url, "w_1200,c_limit");
 }
+
+// Az alkalom-accordion vázlatos listájához – kisebb, mint a projekt coverImage.
+export function getOccasionThumbUrl(url: string): string {
+  return injectTransformation(url, "w_320,h_200,c_fill");
+}

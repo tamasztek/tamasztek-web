@@ -43,7 +43,7 @@ function HeroRenewd() {
             <button
               type="button"
               className="hr-btn hr-btn--donate hr-btn--lg"
-              onClick={openDonationModal}
+              onClick={() => openDonationModal()}
             >
               <span>Adományozok</span>
               <img src={arrowIcon} alt="" className="hr-btn__arrow" />
