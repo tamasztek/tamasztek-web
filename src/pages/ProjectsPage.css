@@ -94,17 +94,12 @@
 }
 
 .projects-tab:hover {
-    /*color: var(--rd-color-primary);*/
     transform: scale(1.01);
 }
 
 .projects-tab--active {
     color: #fff;
     background: var(--rd-color-primary);
-}
-
-.projects-tab--active:hover {
-    /*color: #fff;*/
 }
 
 .projects-page__status {
