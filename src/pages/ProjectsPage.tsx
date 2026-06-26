@@ -24,6 +24,9 @@ const ProjectsPage: React.FC = () => {
   const [loadingMore, setLoadingMore] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [expanded, setExpanded] = useState<Record<string, boolean>>({});
+  // Amelyik accordiont már legalább egyszer kinyitottuk: a tartalom mountolva marad,
+  // így a lazy fetch csak egyszer fut, a be/kinyitás viszont animálható.
+  const [opened, setOpened] = useState<Record<string, boolean>>({});
   const { openDonationModal } = useDonationModal();
 
   // Az aktív tab első oldalának betöltése (induláskor és tab-váltáskor). A
@@ -56,6 +59,7 @@ const ProjectsPage: React.FC = () => {
     setProjects([]);
     setPage(0);
     setExpanded({});
+    setOpened({});
   };
 
   const loadMore = () => {
@@ -71,8 +75,10 @@ const ProjectsPage: React.FC = () => {
       .finally(() => setLoadingMore(false));
   };
 
-  const toggleOccasions = (id: string) =>
+  const toggleOccasions = (id: string) => {
+    setOpened((prev) => ({ ...prev, [id]: true }));
     setExpanded((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
 
   const formatDate = (dateStr: string) =>
     new Date(dateStr).toLocaleDateString("hu-HU", {
@@ -229,15 +235,29 @@ const ProjectsPage: React.FC = () => {
                         >
                           Tekintse meg alkalmainkat!
                           <span
-                            className="project-card__occasions-caret"
+                            className={`project-card__occasions-caret${
+                              expanded[project.id]
+                                ? " project-card__occasions-caret--open"
+                                : ""
+                            }`}
                             aria-hidden="true"
                           >
-                            {expanded[project.id] ? "▲" : "▼"}
+                            ▼
                           </span>
                         </button>
-                        {expanded[project.id] && (
-                          <OccasionList projectId={project.id} />
-                        )}
+                        <div
+                          className={`project-card__occasions-panel${
+                            expanded[project.id]
+                              ? " project-card__occasions-panel--open"
+                              : ""
+                          }`}
+                        >
+                          <div className="project-card__occasions-panel-inner">
+                            {opened[project.id] && (
+                              <OccasionList projectId={project.id} />
+                            )}
+                          </div>
+                        </div>
                       </div>
                     )}
                   </div>

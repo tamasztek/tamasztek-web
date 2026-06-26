@@ -127,7 +127,9 @@
 .project-card {
     display: flex;
     gap: 3.5rem;
-    align-items: center;
+    /* Felülre igazítás: az accordion nyitásakor a sor magasabb lesz, de a kép
+       és a felső szöveg a helyén marad – nem csúszik el függőlegesen. */
+    align-items: flex-start;
 }
 
 .project-card--reversed {
@@ -258,6 +260,28 @@
 
 .project-card__occasions-caret {
     font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.project-card__occasions-caret--open {
+    transform: rotate(180deg);
+}
+
+/* Magasság-animáció a grid 0fr → 1fr trükkel: nem kell ismerni a tartalom
+   magasságát, és az aszinkron betöltött alkalmakhoz is simán igazodik. */
+.project-card__occasions-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s ease;
+}
+
+.project-card__occasions-panel--open {
+    grid-template-rows: 1fr;
+}
+
+.project-card__occasions-panel-inner {
+    overflow: hidden;
+    min-height: 0;
 }
 
 /* ── Load more ────────────────────────────────────────── */
