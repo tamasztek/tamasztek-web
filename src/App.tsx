@@ -4,6 +4,7 @@ import DonatePage from "./pages/DonatePage";
 import DonationConfirmationPage from "./pages/DonationConfirmationPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import ProjectsPage from "./pages/ProjectsPage";
+import NewsListPage from "./pages/NewsListPage";
 import GalleryPage from "./pages/GalleryPage";
 import AlbumDetailPage from "./pages/AlbumDetailPage";
 import ComingSoonPage from "./pages/ComingSoonPage";
@@ -28,6 +29,7 @@ function App() {
             element={<DonationConfirmationPage />}
           />
           <Route path="/projektek" element={<ProjectsPage />} />
+          <Route path="/hirek" element={<NewsListPage />} />
           <Route path="/galeria" element={<GalleryPage />} />
           <Route path="/galeria/:publicId" element={<AlbumDetailPage />} />
           <Route path="/adatvedelem" element={<PrivacyPolicyPage />} />

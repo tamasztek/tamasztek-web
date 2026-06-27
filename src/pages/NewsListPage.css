@@ -1,0 +1,111 @@
+.news-renewd {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    font-family: var(--rd-font-body);
+    color: var(--rd-text-dark);
+    text-align: left;
+}
+
+.news-renewd * {
+    box-sizing: border-box;
+}
+
+.news-page {
+    min-height: 100vh;
+    padding-top: 6rem;
+    padding-bottom: 5rem;
+    background: var(--rd-bg-cream);
+    font-family: var(--rd-font-body);
+}
+
+.news-page__container {
+    max-width: 1126px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.news-page__title {
+    font-family: var(--rd-font-body);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--rd-color-primary);
+    letter-spacing: -0.02em;
+    margin: 0 0 2rem;
+    line-height: 1.1;
+}
+
+.news-page__status {
+    font-size: 1rem;
+    color: var(--rd-text-muted);
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.news-page__status--error {
+    color: var(--rd-color-error);
+}
+
+.news-page__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    animation: news-fade-in 0.35s ease both;
+}
+
+@keyframes news-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .news-page__list {
+        animation: none;
+    }
+}
+
+.news-page__row {
+    display: flex;
+    flex-direction: column;
+}
+
+/* A hír-kártya első eleme felül kevesebb térrel induljon, mint a NewsRenewd
+   szekcióbeli alap 50px – a cím alatt szellősebb, de nem túl nagy a rés. */
+.news-page__row:first-child .home-renewd__news-item {
+    padding-top: 0;
+}
+
+.news-page__load-more {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.news-page__load-more-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: var(--rd-font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--rd-color-primary);
+}
+
+@media (max-width: 768px) {
+    .news-page {
+        padding-top: 5rem;
+        padding-bottom: 3rem;
+    }
+
+    .news-page__container {
+        padding: 0 1.5rem;
+    }
+}

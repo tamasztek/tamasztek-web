@@ -1,4 +1,5 @@
 import type { NewsItem } from "../../types/news";
+import NewsArticleItem from "./NewsArticleItem";
 import "./NewsRenewd.css";
 
 interface NewsRenewdProps {
@@ -27,26 +28,7 @@ function NewsRenewd({ news, loading, error }: NewsRenewdProps) {
                     aria-hidden="true"
                   />
                 )}
-                <article className="home-renewd__news-item">
-                  {item.image && (
-                    <div className="home-renewd__news-image-slot">
-                      <img
-                        src={item.image.url}
-                        alt={item.image.altText ?? item.title}
-                        className="home-renewd__news-image"
-                      />
-                    </div>
-                  )}
-                  <div className="home-renewd__news-body">
-                    <div className="home-renewd__news-heading-row">
-                      <h3 className="home-renewd__news-heading">{item.title}</h3>
-                      {item.date && (
-                        <p className="home-renewd__news-date">{item.date}</p>
-                      )}
-                    </div>
-                    <p className="home-renewd__news-text">{item.content}</p>
-                  </div>
-                </article>
+                <NewsArticleItem item={item} />
               </li>
             ))}
           </ul>
