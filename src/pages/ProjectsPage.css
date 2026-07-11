@@ -250,8 +250,8 @@
     font-family: var(--rd-font-body);
     font-size: 0.9rem;
     font-weight: 700;
-    color: #fff;
-    background: var(--rd-color-primary);
+    color: var(--rd-color-donate-text);
+    background: var(--rd-color-donate);
     border: none;
     border-radius: 999px;
     padding: 0.55rem 1.4rem;
@@ -260,6 +260,31 @@
 
 .project-card__support-btn:hover {
     opacity: 0.9;
+}
+
+/* ── Fotóalbum gomb ───────────────────────────────────── */
+.project-card__album {
+    margin-top: 1rem;
+}
+
+.project-card__album-btn {
+    display: inline-block;
+    cursor: pointer;
+    font-family: var(--rd-font-body);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--rd-color-primary);
+    background: transparent;
+    border: 2px solid var(--rd-color-primary);
+    border-radius: 999px;
+    padding: 0.5rem 1.4rem;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.project-card__album-btn:hover {
+    background: var(--rd-color-primary);
+    color: #fff;
 }
 
 /* ── Occasions accordion ──────────────────────────────── */

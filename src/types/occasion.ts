@@ -7,4 +7,5 @@ export interface Occasion {
   participantCount: number | null;
   volunteerCount: number | null;
   coverImage: ProjectImage | null;
+  albumPublicId: string | null;
 }
