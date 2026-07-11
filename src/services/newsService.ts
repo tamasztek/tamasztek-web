@@ -21,7 +21,8 @@ export async function fetchFeaturedNews(): Promise<NewsItem[]> {
 }
 
 // A dedikált hírek oldal (/hirek) lapozott listája: minden hír (kiemelt és
-// normál) megjelenési dátum szerint csökkenő sorrendben.
+// normál) a kézi sorszám (sortOrder) szerint növekvő sorrendben – ugyanaz a
+// sorrend, mint az adminban és a főoldali kiemelt híreknél.
 export async function fetchNews(
   page: number,
   size = 10
