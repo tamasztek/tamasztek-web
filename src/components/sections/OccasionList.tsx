@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { fetchProjectOccasions } from "../../services/occasionService";
 import type { Occasion } from "../../types/occasion";
 import { getOccasionThumbUrl } from "../../utils/cloudinaryUrl";
@@ -120,6 +121,14 @@ function OccasionList({ projectId }: OccasionListProps) {
                 </span>
               )}
             </div>
+            {occasion.albumPublicId && (
+              <Link
+                to={`/galeria/${occasion.albumPublicId}`}
+                className="occasion-item__album-btn"
+              >
+                Fotóalbum
+              </Link>
+            )}
           </div>
         </li>
       ))}

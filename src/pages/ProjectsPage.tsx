@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { fetchProjects, type ProjectFilter } from "../services/projectService";
 import type { Project } from "../types/project";
 import { useDonationModal } from "../components/ui/donationModalContext";
@@ -223,6 +224,17 @@ const ProjectsPage: React.FC = () => {
                         >
                           Adományozok
                         </button>
+                      </div>
+                    )}
+
+                    {project.albumPublicId && (
+                      <div className="project-card__album">
+                        <Link
+                          to={`/galeria/${project.albumPublicId}`}
+                          className="project-card__album-btn"
+                        >
+                          Fotóalbum
+                        </Link>
                       </div>
                     )}
 

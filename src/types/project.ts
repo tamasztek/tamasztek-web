@@ -15,6 +15,7 @@ export interface Project {
   volunteerCount: number | null;
   coverImage: ProjectImage | null;
   occasionCount: number;
+  albumPublicId: string | null;
 }
 
 export interface PageResponse<T> {
