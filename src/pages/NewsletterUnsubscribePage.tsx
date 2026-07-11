@@ -32,7 +32,7 @@ function NewsletterUnsubscribePage() {
   };
 
   return (
-    <div className="home-renewd">
+    <div className="home-renewd newsletter-status-page">
       <NavbarRenewd />
       <main>
         <section className="newsletter-status">
